@@ -1,0 +1,151 @@
+
+char1 byte%c-128 to 127
+unsigned char1 byte%c0 to 255
+short2 bytes%-32,768 to 32,767
+unsigned short2 bytes%0 to 65,535
+int4 bytes%d-2,147,483,648 to 2,147,483,647
+unsigned int4 bytes0 to 4,294,967,295
+long8 bytes-9,223,372,036,854,775,808 to9,223,372,036,854,775,807
+unsigned long8 bytes0 to 18,446,744,073,709,551,615
+float4 bytes%f
+double8 bytes%f
+long double18 bytes%lf
+
+sizeof(char);1 bytes, size in memory
+sizeof(int);4
+printf("The size of int is: %lu.\n", (unsigned long)sizeof(i));
+
+f= (float) i;i = (int) f;//Casting
+
+'c'//Single character. The value of a character is its ASCII code (man ascii)
+"string"// When using strings, the computer creates an array of chars,
+containing the same number of cells as the length of the string + 1,
+and then fills the array with the ASCII codes of each letter of the string.
+In the extra cell (the last one) the computer will store the ASCII code of the special character ‘\0’
+
+type varname;
+int myarray [32];
+int myarrayofarrays [32][24];
+
+struct new_struct {//Creates a new type of data
+int a;
+char b[32];
+struct addres ar;//Can have another structure variable
+}
+
+struct new_struct s;//Declaration of a variable of type new_struct
+
+struct new_struct var_array[32];//Array of structures
+
+*********************************** FUNCTIONS **********************************
+
+return_type function_name (type param1,...)
+{//block}
+
+int main() {} //Init the program, when it returns, program ends.
+
+********************************** OPERATOR **********************************
+< Less than
+<= Less or equal to
+== Equal to
+>= Greater or equal to
+> Greater than
+!= Different than
+|| OR, && AND, ! NOT//LOGICAL OPERATORS
+| OR, & AND, << LEFT SHIFT, >> RIGHT SHIFT, ^ XOR, ~ NOT//Bitwise operators
+
++ addition, - subtraction, * multiplication, / division, % modulo (integer remainder), 
+++increment, --decrement
++=, -=, *=, /=, %=, &=, |=, ^=, <<=, >>=
+
+var_array[expresion] = expresion;
+var_struct.field_name = expresion;
+expression1, expression2//The value of the whole expression is the value of expression2
+expression1? expression2: expression3
+
+&var_name//The address in memory of the variable var_name
+
+*********************************** FLOW CONTROL ******************************
+if (expresion)
+{//block}
+else
+{//block}
+
+while (expresion)
+{//block}
+
+for ( [initialize] ; condition ; [update] )
+{//block}
+
+return (expresion)// ends the function and returns the value of expresion to the calling function
+// The type of expression must match the return type of the function
+
+*********************************** COMPILING **********************************
+1) Create a text file with extension .c
+2) gcc file.c -o executable_name_file//To execute use ./executable_name_file
+2b)make file
+
+************************************ INPUT & OUTPUTS *********************************
+
+int getchar(void);//Reads the next character from standar input
+//Returns EOF when end of file or error condition
+int putchar (int c);//Converts c to unsigned char, then white it to standard output
+//Returns the character that was written.
+printf( format_str, var1, var2, ...);// "%s %d %5.2f %lu"
+scanf(format_str, &var1, 6var2, ...);
+char c; int i; scanf("%c %d", &c, &i, ...);// Guarda la información de entrada en la memoria &var1...
+putchar (int )
+
+int puts(const char *string)
+
+**********************************BETTY STYLE *************************************+++
+git clone https://github.com/holbertonschool/Betty.git
+./install.sh
+betty-style file1 [file2 [file3 [...]]]
+betty-doc file1 [file2 [file3 [...]]]
+
+betty script copied to /bin/ to be executed everywhere. use betty filename
+=========================================================================
+#!/bin/bash
+# Simply a wrapper script to keep you from having to use betty-style
+# and betty-doc separately on every item.
+# Originally by Tim Britton (@wintermanc3r), multiargument added by
+# Larry Madeo (@hillmonkey)
+
+BIN_PATH="/usr/local/bin"
+BETTY_STYLE="betty-style"
+BETTY_DOC="betty-doc"
+
+if [ "$#" = "0" ]; then
+    echo "No arguments passed."
+    exit 1
+fi
+
+for argument in "$@" ; do
+    echo -e "\n========== $argument =========="
+    ${BIN_PATH}/${BETTY_STYLE} "$argument"
+    ${BIN_PATH}/${BETTY_DOC} "$argument"
+done
+=========================================================================
+
+add this to your ~/.emacs file to use 8 character tabs an 80 characters per line
+
+(setq c-default-style "bsd"
+      c-basic-offset 8
+      tab-width 8
+      indent-tabs-mode t)
+(require 'whitespace)
+(setq whitespace-style '(face empty lines-tail trailing))
+(global-whitespace-mode t)
+
+?*********************************** KEYWORDS ****************************
+
+autodoubleintstruct
+breakelselongswitch
+caseenumregistertypedef
+charexternreturnunion
+constfloatshortunsigned
+continueforsignedvoid
+defaultgotosizeofvolatile
+doifstaticwhile
+const, signed, void and volatile 
