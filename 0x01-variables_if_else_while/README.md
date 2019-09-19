@@ -9,6 +9,9 @@
 #8 Program that prints all the numbers of base 16 in lowercase.
 #9 Program that prints all possible combinations of single-digit numbers.
 #10 Program that prints the numbers from 00 to 99.
+#11 Program that prints all possible different combinations of two digits.
+#12 Program that prints all possible different combinations of three digits.
+#13 Program that prints all possible combinations of two two-digit numbers.
 
 By LeoCJJ
 09/19/2019x
