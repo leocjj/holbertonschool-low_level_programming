@@ -1,0 +1,8 @@
+#!/bin/bash
+#./s 'File' //to compilate and evaluate betty style
+gcc $1
+gcc -Wall $1
+gcc -Werror $1
+gcc -Wextra $1
+gcc -pedantic $1
+betty $1
