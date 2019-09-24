@@ -12,20 +12,15 @@ void print_to_98(int n)
 	{
 		for (; n < 98; n++)
 		{
-			int temp = n % 10;
+			int temp = n;
 
-			if (n < 0)
+			if (temp < 0)
 			{
 				temp = temp * -1;
 				_putchar('-');
-				if (n / 10 != 0)
-					_putchar(-n / 10 + '0');
 			}
-			else
-			{
-				if (n / 10 != 0)
-					_putchar(n / 10 + '0');
-			}
+			if (temp / 10 != 0)
+				_putchar(temp / 10 + '0');
 			_putchar(temp % 10 + '0');
 			_putchar(',');
 			_putchar(' ');
