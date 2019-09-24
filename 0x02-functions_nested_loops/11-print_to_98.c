@@ -14,12 +14,12 @@ void print_to_98(int n)
 		{
 			int temp = n;
 
-			if (temp < 0)
+			if (n < 0)
 			{
 				temp = temp * -1;
 				_putchar('-');
 			}
-			if (temp / 10 != 0)
+			if (n / 10 != 0)
 				_putchar(temp / 10 + '0');
 			_putchar(temp % 10 + '0');
 			_putchar(',');
