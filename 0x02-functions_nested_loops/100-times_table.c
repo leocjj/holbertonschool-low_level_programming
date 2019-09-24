@@ -22,11 +22,11 @@ void print_times_table(int n)
 					_putchar('0');
 				else
 				{
-					if (temp / 100 == 0)
+					if (temp < 100)
 						_putchar(' ');
 					else
 						_putchar(temp / 100 + '0');
-					if (((temp % 100)  / 10 == 0) && (temp / 100 == 0))
+					if (temp < 10)
 						_putchar(' ');
 					else
 						_putchar((temp % 100) / 10 + '0');
