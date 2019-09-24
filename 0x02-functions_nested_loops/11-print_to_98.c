@@ -46,7 +46,7 @@ void print_to_98(int n)
 			_putchar('9');
 			_putchar('8');
 			_putchar('\n');
-			continue;
+			break;
 		}
 	} while (n != 98);
 }
