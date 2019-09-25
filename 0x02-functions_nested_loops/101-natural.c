@@ -5,18 +5,16 @@
  *
  * Return: void
  */
-void main(void)
+int main(void)
 {
 	int i, contar3, contar5;
 
-	contar3 = 0;
-	contar5 = 0;
-	for (i = 3; i < 1024; i++)
+	contar = 0;
+	for (i = 1; i < 1024; i++)
 	{
-		if (i % 3 == 0)
-			contar3 += i;
-		if (i % 5 == 0)
-			contar5 += i;
+		if (i % 3 == 0 || i % 5 == 0)
+			contar += i;
 	}
-	printf("%d\n", contar3 + contar5);
+	printf("%d\n", contar);
+	return (0);
 }
