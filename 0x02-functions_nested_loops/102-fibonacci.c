@@ -3,26 +3,21 @@
 /**
  * main - Entry point
  *
- * Return: void
+ * Return: Always 0 (Success)
  */
-void main(void)
+int main(void)
 {
 	int i;
-	long n1, n2, temp;
+	long n[50];
 
-	n1 = 1;
-	n2 = 2;
-	temp = 0;
-	printf("%li, ", n1);
-	for (i = 1; i < 50; i++)
-	{
-		printf("%li", n2);
-		if (i != 49)
-			printf(", ");
-		else
-			printf("\n");
-		temp = n2;
-		n2 = n1 + n2;
-		n1 = temp;
-	}
+	n[0] = 1;
+	n[1] = 2;
+
+	for (i = 2; i < 50; i++)
+		n[i] = n[i - 1] + n[i - 2];
+	for (i = 1; i <50; i++)
+		printf("%li, ", n[i]);
+	printf("%li\n",n[49]);
+
+	return (0);
 }
