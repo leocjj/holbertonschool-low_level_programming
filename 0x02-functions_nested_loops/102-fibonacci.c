@@ -16,7 +16,7 @@ void main(void)
 	for (i = 1; i <= 50; i++)
 	{
 		printf("%lu", n2);
-		if (i != 98)
+		if (i != 50)
 			printf(", ");
 		else
 			printf("\n");
