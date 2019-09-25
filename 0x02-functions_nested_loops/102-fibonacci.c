@@ -8,15 +8,15 @@
 void main(void)
 {
 	int i;
-	unsigned long int n1, n2, temp;
+	long n1, n2, temp;
 
 	n1 = 1;
 	n2 = 2;
 	temp = 0;
-	printf("%lu, ", n1);
+	printf("%li, ", n1);
 	for (i = 1; i < 50; i++)
 	{
-		printf("%lu", n2);
+		printf("%li", n2);
 		if (i != 49)
 			printf(", ");
 		else
