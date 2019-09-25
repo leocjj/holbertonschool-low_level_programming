@@ -15,9 +15,9 @@ int main(void)
 
 	for (i = 2; i < 50; i++)
 		n[i] = n[i - 1] + n[i - 2];
-	for (i = 1; i <50; i++)
+	for (i = 0; i < 49; i++)
 		printf("%li, ", n[i]);
-	printf("%li\n",n[49]);
+	printf("%li\n", n[49]);
 
 	return (0);
 }
