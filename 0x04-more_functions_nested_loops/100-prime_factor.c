@@ -6,24 +6,24 @@
  * Return: void
  */
 /*
-int isprime(int p)
-{
-	int k, flag;
-
-	flag = 0;
-	for(k = 2; k <= p/2; k++)
-	{
-		if (p % k == 0)
-		{
-			flag = 1;
-			break;
-		}
-	}
-	if (!flag)
-		return (1);
-	return (0);
-}
-*/
+ *int isprime(int p)
+ *{
+ *	int k, flag;
+ *
+ *	flag = 0;
+ *	for(k = 2; k <= p/2; k++)
+ *	{
+ *		if (p % k == 0)
+ *		{
+ *			flag = 1;
+ *			break;
+ *		}
+ *	}
+ *	if (!flag)
+ *		return (1);
+ *	return (0);
+ *}
+ */
 void main(void)
 {
 	long int n, i, lpf;
@@ -32,14 +32,15 @@ void main(void)
 	lpf = -1;
 	i = 2;
 
-	while(n != 0)
+	while (n != 0)
 	{
-		if(n % i !=0 )
+		if (n % i != 0)
 			i = i + 1;
-		else {
+		else
+		{
 			lpf = n;
 			n = n / i;
-			if(n == 1)
+			if (n == 1)
 			{
 				printf("%li", lpf);
 				break;
