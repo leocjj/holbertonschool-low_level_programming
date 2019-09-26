@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**
  * _isdigit - Entry point
  * @c: The character to evaluate
