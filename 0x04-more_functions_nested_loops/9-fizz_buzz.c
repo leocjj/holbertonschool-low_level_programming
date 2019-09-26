@@ -13,14 +13,21 @@ int main(void)
 	{
 		m3 = fb % 3;
 		m5 = fb % 5;
+		if (m3 == 0)
+			printf("Fizz");
+		if (m5 == 0)
+			printf("Buzz");
 		if (m3 != 0 && m5 != 0)
-			printf("%d ", fb);
-		else if (m3 == 0 && m5 != 0)
-			printf("Fizz ");
-		else if (m3 != 0 && m5 == 0)
-			printf("Buzz ");
-		else
-			printf("FizzBuzz ");
+			printf("%d", fb);
+		printf(" ");
+		/*
+		 *else if (m3 == 0 && m5 != 0)
+		 *	printf("Fizz ");
+		 *else if (m3 != 0 && m5 == 0)
+		 *	printf("Buzz ");
+		 *else
+		 *	printf("FizzBuzz ");
+		 */
 	}
 	printf("\n");
 	return (0);
