@@ -19,7 +19,8 @@ int main(void)
 			printf("Buzz");
 		if (m3 != 0 && m5 != 0)
 			printf("%d", fb);
-		printf(" ");
+		if (fb != 100)
+			printf(" ");
 		/*
 		 *else if (m3 == 0 && m5 != 0)
 		 *	printf("Fizz ");
