@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**
  * mul - Entry point
  * @a: integer to multiply
