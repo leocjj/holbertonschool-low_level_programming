@@ -3,28 +3,9 @@
 /**
  * main - Entry point
  *
- * Return: void
+ * Return: always zero.
  */
-/*
- *int isprime(int p)
- *{
- *	int k, flag;
- *
- *	flag = 0;
- *	for(k = 2; k <= p/2; k++)
- *	{
- *		if (p % k == 0)
- *		{
- *			flag = 1;
- *			break;
- *		}
- *	}
- *	if (!flag)
- *		return (1);
- *	return (0);
- *}
- */
-void main(void)
+int main(void)
 {
 	long int n, i, lpf;
 
@@ -47,4 +28,5 @@ void main(void)
 			}
 		}
 	}
+	return (0);
 }
