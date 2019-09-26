@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 /**
  * _isupper - Entry point
  * @c: The character to print
