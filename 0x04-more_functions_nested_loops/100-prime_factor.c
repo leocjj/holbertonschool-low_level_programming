@@ -23,7 +23,7 @@ int main(void)
 			n = n / i;
 			if (n == 1)
 			{
-				printf("%li", lpf);
+				printf("%li\n", lpf);
 				break;
 			}
 		}
