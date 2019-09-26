@@ -1,25 +1,17 @@
 #include "holberton.h"
 
 /**
- * print_diagonal - Entry point
- * @n: length of
+ * print_line - Entry point
+ * @n: length of the line
  *
  * Return: void
  */
-void print_diagonal(int n)
+void print_line(int n)
 {
-	int i, j;
+	int i;
 
 	if (n > 0)
-	{
 		for (i = 1; i <= n; i++)
-		{
-			for (j = 1; j < i; j++)
-			{
-				_putchar(' ');
-			}
-			_putchar('\\');
-		}
-	}
+			_putchar('_');
 	_putchar('\n');
 }
