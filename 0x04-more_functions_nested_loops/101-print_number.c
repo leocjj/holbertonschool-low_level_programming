@@ -24,13 +24,15 @@ void print_number(int n)
 	if (n == 0)
 	{
 		_putchar('0');
+		_putchar('\n');
 		return;
 	}
 	while (max >= 1)
 	{
 		a = n / max;
-		_putchar (a + '0');
+		_putchar(a + '0');
 		n -= max * a;
 		max /= 10;
 	}
+	_putchar('\n');
 }
