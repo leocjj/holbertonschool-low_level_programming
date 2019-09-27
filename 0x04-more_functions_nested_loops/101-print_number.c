@@ -11,7 +11,7 @@ void print_number(int n)
 {
 	int max, a;
 
-	max = 1000000000;
+	max = 1000;
 	if (n < 0)
 	{
 		n *= -1;
