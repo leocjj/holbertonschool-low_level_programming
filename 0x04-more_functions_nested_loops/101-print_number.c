@@ -14,8 +14,12 @@ void print_number(int n)
 	max = 1000000000;
 	if (n < 0)
 	{
-		n *= -1;
 		_putchar('-');
+		a = n / max;
+		_putchar(-a + '0');
+		n %= max;
+		n *= -1;
+		max /= 10;
 	}
 	while (max - n > 0)
 	{
