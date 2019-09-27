@@ -9,12 +9,8 @@
 
 void print_number(int n)
 {
-	int max, dec, i, cont;
+	int max, a;
 
-	i = 1;
-
-	cont = 1;
-	dec = 10;
 	max = 1000000000;
 	if (n < 0)
 	{
@@ -25,20 +21,16 @@ void print_number(int n)
 	{
 		max /= 10;
 	}
-
-	if (max)
-		_putchar(n / max + '0');
-	else
-		_putchar('0');
-	while (max / dec)
+	if (n == 0)
 	{
-		_putchar((n % max) / (max * i / dec) + '0');
-		dec *= 10;
-		cont++;
-		if (cont == 3 && max == 1000)
-		{
-			_putchar((n % max) % (10) + '0');
-			break;
-		}
+		_putchar('0');
+		return;
+	}
+	while (max >= 1)
+	{
+		a = n / max;
+		_putchar (a + '0');
+		n -= max * a;
+		max /= 10;
 	}
 }
