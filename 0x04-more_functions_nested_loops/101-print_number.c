@@ -1,45 +1,47 @@
 #include "holberton.h"
 
 /**
- * print_number - prints the number
- * @n: number to print
- * Return:none
+ * print_number - Print an integer
+ * @n: The number to print
  */
-
 void print_number(int n)
 {
-	int i, digit, place, fake_bool;
-	long j;
-	char num[1000];
+	int min_flag;
 
-	place = 0;
-	fake_bool = 0;
-	j = n;
-	if (j < 0)
+	min_flag = 0;
+
+	if (n < 0)
 	{
-		j = j * -1;
-		fake_bool = 1;
-	}
-	while ((j / 10) != 0)
-	{
-		digit = j % 10;
-		num[place] = digit;
-		place++;
-		j = j / 10;
-	}
-	num[place] = j;
-	if (fake_bool == 1)
-	{
-		place++;
-		num[place] = '-';
-	}
-	for (i = place; i >= 0; i--)
-	{
-		if (num[i] != '-')
+		_putchar('-');
+		if ((n < 1000000000) && (n % 10 != 0))
 		{
-			_putchar(num[i] + '0');
+			n++;
+			min_flag = 1;
 		}
-		else
-			_putchar('-');
+		n = -n;
 	}
+
+	if (n / 1000000000 > 0)
+		_putchar((n / 1000000000 % 10) + '0');
+	if (n / 100000000 > 0)
+		_putchar((n / 100000000 % 10) + '0');
+	if (n / 10000000 > 0)
+		_putchar((n / 10000000 % 10) + '0');
+	if (n / 1000000 > 0)
+		_putchar((n / 1000000 % 10) + '0');
+	if (n / 100000 > 0)
+		_putchar((n / 100000 % 10) + '0');
+	if (n / 10000 > 0)
+		_putchar((n / 10000 % 10) + '0');
+	if (n / 1000 > 0)
+		_putchar((n / 1000 % 10) + '0');
+	if (n / 100 > 0)
+		_putchar((n / 100 % 10) + '0');
+	if (n / 10 > 0)
+		_putchar((n / 10 % 10) + '0');
+
+	if (min_flag == 0)
+		_putchar(n % 10 + '0');
+	else
+		_putchar(n % 10 + 1 + '0');
 }
