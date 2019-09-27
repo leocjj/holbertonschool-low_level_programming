@@ -17,6 +17,7 @@ void print_number(int n)
 		n *= -1;
 		_putchar('-');
 	}
+
 	while (max - n > 0)
 	{
 		max /= 10;
