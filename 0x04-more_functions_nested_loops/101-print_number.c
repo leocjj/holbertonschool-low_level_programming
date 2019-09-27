@@ -1,47 +1,37 @@
 #include "holberton.h"
 
 /**
- * print_number - Print an integer
- * @n: The number to print
+ * print_number - Entry point
+ * @n: integer to print
+ *
+ * Return: void
  */
+
 void print_number(int n)
 {
-	int min_flag;
+	int max, a;
 
-	min_flag = 0;
-
+	max = 1000;
 	if (n < 0)
 	{
+		n *= -1;
 		_putchar('-');
-		if ((n < 1000000000) && (n % 10 != 0))
-		{
-			n++;
-			min_flag = 1;
-		}
-		n = -n;
 	}
 
-	if (n / 1000000000 > 0)
-		_putchar((n / 1000000000 % 10) + '0');
-	if (n / 100000000 > 0)
-		_putchar((n / 100000000 % 10) + '0');
-	if (n / 10000000 > 0)
-		_putchar((n / 10000000 % 10) + '0');
-	if (n / 1000000 > 0)
-		_putchar((n / 1000000 % 10) + '0');
-	if (n / 100000 > 0)
-		_putchar((n / 100000 % 10) + '0');
-	if (n / 10000 > 0)
-		_putchar((n / 10000 % 10) + '0');
-	if (n / 1000 > 0)
-		_putchar((n / 1000 % 10) + '0');
-	if (n / 100 > 0)
-		_putchar((n / 100 % 10) + '0');
-	if (n / 10 > 0)
-		_putchar((n / 10 % 10) + '0');
-
-	if (min_flag == 0)
-		_putchar(n % 10 + '0');
-	else
-		_putchar(n % 10 + 1 + '0');
+	while (max - n > 0)
+	{
+		max /= 10;
+	}
+	if (n == 0)
+	{
+		_putchar('0');
+		return;
+	}
+	while (max >= 1)
+	{
+		a = n / max;
+		_putchar (a + '0');
+		n -= max * a;
+		max /= 10;
+	}
 }
