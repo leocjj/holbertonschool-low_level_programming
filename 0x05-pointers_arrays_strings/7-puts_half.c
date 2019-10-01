@@ -27,7 +27,7 @@ void puts_half(char *str)
 	 * because of i went to '\n' when counting
 	 */
 	else
-		i = (i - 1) / 2;
+		i = (i + 1) / 2;
 	/* print str with putchar and POST-increment.*/
 	while (i < legth)
 	{
