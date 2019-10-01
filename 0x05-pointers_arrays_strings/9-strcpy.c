@@ -14,6 +14,7 @@ char *_strcpy(char *dest, char *src)
 	i = 0;
 	while (*(src + i))
 		i++;
+
 	legth = i;
 	i = 0;
 	while (i <= legth)
