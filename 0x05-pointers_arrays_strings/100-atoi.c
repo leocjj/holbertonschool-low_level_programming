@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <limits.h>
 
 /**
  * _atoi - convert a string to an integer.
@@ -8,7 +9,8 @@
  */
 int _atoi(char *s)
 {
-	int sign, number, i, signoimpreso, resultado;
+	int sign, number, i, signoimpreso;
+	unsigned int resultado;
 
 	sign = 1;
 	number = 0;
@@ -35,8 +37,18 @@ int _atoi(char *s)
 		s++;
 
 	}
-	if (sign == -1)
-		resultado *= -1;
+
+	if ((resultado >= (unsigned int) INT_MAX && sign == 1))
+		return (INT_MAX);
+	else if ((resultado > (unsigned int) INT_MAX && sign == -1))
+		return (INT_MIN);
+	else if (sign == -1)
+		return ((int) -resultado);
+	else
+		return ((int) resultado);
+
+
+
 
 	return (resultado);
 }
