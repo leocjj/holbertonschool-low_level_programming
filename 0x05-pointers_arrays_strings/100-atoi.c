@@ -47,8 +47,5 @@ int _atoi(char *s)
 	else
 		return ((int) resultado);
 
-
-
-
 	return (resultado);
 }
