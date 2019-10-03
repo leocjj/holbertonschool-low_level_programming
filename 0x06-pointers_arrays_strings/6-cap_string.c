@@ -8,26 +8,26 @@
  */
 char *cap_string(char *s)
 {
-	int i, new_word;
+	int i, j, flag;
+	char cond[] = { 32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125 };
 
-	new_word = 1;
-	for (i = 0; s[i] != '\0'; i++)
+	i = 0;
+	flag = 1;
+	while (*(s + i))
 	{
-		if (s[i] >= 'A' && s[i] <= 'Z')
-			new_word = 0;
-		else if (s[i] >= '0' && s[i] <= '9')
-			new_word = 0;
-		else if ((s[i] >= 'a' && s[i] <= 'z') && new_word == 1)
+		if (*(s + i) >= 'A' && *(s + i) <= 'Z')
+			flag = 0;
+		else if (*(s + i) >= '0' && *(s + i) <= '9')
+			flag = 0;
+		else if (*(s + i) >= 'a' && *(s + i) <= 'z' && flag)
 		{
-			s[i] -= 32;
-			new_word = 0;
+			*(s + i) -= 32;
+			flag = 0;
 		}
-
-		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == ','
-    || s[i] == ';' || s[i] == '.' || s[i] == '!' || s[i] == '?'
-    || s[i] == '\"' || s[i] == '(' || s[i] == ')'
-		    || s[i] == '{' || s[i] == '}')
-			new_word = 1;
+		for (j = 0; j <= 12; j++)
+			if (*(s + i) == cond[j])
+				flag = 1;
+		i++;
 	}
 
 	return (s);
