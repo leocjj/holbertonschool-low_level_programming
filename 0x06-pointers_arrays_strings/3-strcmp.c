@@ -9,9 +9,13 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1)
-		s1++;
-	while (*s2)
-		s2++;
-	return (s1 - s2);
+	int i, j;
+
+	i = 0;
+	j = 0;
+	while (*(s1 + i))
+		i++;
+	while (*(s2 + j))
+		j++;
+	return (i - j);
 }
