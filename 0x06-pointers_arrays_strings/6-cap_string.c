@@ -15,18 +15,18 @@ char *cap_string(char *s)
 	flag = 0;
 	while (*(s + i))
 	{
-		for (j = 0; j <= 12; j++)
-			if (*(s + i) == cond[j])
-				flag = 1;
 		if (*(s + i) >= 'A' && *(s + i) <= 'Z')
 			flag = 0;
 		else if (*(s + i) >= '0' && *(s + i) <= '9')
 			flag = 0;
-		else if (*(s + i + 1) >= 'a' && *(s + i + 1) <= 'z' && flag)
+		else if (*(s + i) >= 'a' && *(s + i) <= 'z' && flag)
 		{
-			*(s + i + 1) -= 32;
+			*(s + i) -= 32;
 			flag = 0;
 		}
+		for (j = 0; j <= 12; j++)
+                        if (*(s + i) == cond[j])
+                                flag = 1;
 		i++;
 	}
 
