@@ -10,8 +10,10 @@
 char *_strchr(char *s, char c)
 {
 	unsigned int i;
+	char *ss;
 
 	i = 0;
+	ss = NULL;
 	while (*(s + i))
 	{
 		if (*(s + i) == c)
@@ -19,5 +21,5 @@ char *_strchr(char *s, char c)
 		i++;
 	}
 
-	return (s + i);
+	return (ss);
 }
