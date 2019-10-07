@@ -9,32 +9,39 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, j, n;
+	unsigned int i, j, m, n;
+	char *p = NULL;
 
 	i = 0;
 	j = 0;
 	n = 0;
-
-	if (*(needle) == '\0')
+	m = 0;
+	if (!*(needle))
 		return (haystack);
-
+	while (*(haystack + m))
+		m++;
 	while (*(needle + n))
 		n++;
 
-	while (*(haystack + i))
+	while (i < m)
 	{
 		if (*(haystack + i) == *(needle + j))
 		{
-			while (j < n && *(haystack + i + j) && *(needle + j))
+			p = (haystack + i);
+			j = 0;
+			while (j < n)
 			{
 				if (*(haystack + i + j) != *(needle + j))
-					return (NULL);
+				{
+					p = NULL;
+					break;
+				}
 				j++;
 			}
-			return (haystack + i);
+			if (j == n - 1)
+				i = m;
 		}
 		i++;
 	}
-
-	return (NULL);
+	return (p);
 }
