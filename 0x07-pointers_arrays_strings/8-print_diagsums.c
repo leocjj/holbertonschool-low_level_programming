@@ -22,9 +22,9 @@ void print_diagsums(int *a, int size)
 	printf("%d, ", sum);
 	i = 0;
 	sum = 0;
-	while (i <= size)
+	while (i < size)
 	{
-		sum  += *(a + i * (size - 1));
+		sum  += *(a + (i + 1) * (size - 1));
 		i++;
 	}
 	printf("%d\n", sum);
