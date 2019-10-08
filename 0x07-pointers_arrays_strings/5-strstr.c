@@ -25,10 +25,10 @@ char *_strstr(char *haystack, char *needle)
 
 	while (i < m)
 	{
+		j = 0;
 		if (*(haystack + i) == *(needle + j))
 		{
 			p = (haystack + i);
-			j = 0;
 			while (j < n)
 			{
 				if (*(haystack + i + j) != *(needle + j))
@@ -38,7 +38,7 @@ char *_strstr(char *haystack, char *needle)
 				}
 				j++;
 			}
-			if (j == n - 1)
+			if (j == n)
 				i = m;
 		}
 		i++;
