@@ -14,25 +14,30 @@ int main(void)
 	t = _strstr(s, f);
 	printf("%s\n", t);
 
+	s = "First, solve the problem. Then, write the code.";
+	f = "solve";
+	t = _strstr(s, f);
+	printf("%s\n", (t == NULL ? "nil" : t));
+
         s = "hello, worl";
         f = "world";
         t = _strstr(s, f);
-        printf("%s\n", t);
+        printf("%s\n", (t == NULL ? "nil" : t));
 
         s = "hello, world";
         f = "worl";
         t = _strstr(s, f);
-        printf("%s\n", t);
+        printf("%s\n", (t == NULL ? "nil" : t));
 
         s = "world";
         f = "world";
         t = _strstr(s, f);
-        printf("%s\n", t);
+        printf("%s\n", (t == NULL ? "nil" : t));
 
         s = "hello, world";
         f = "world";
         t = _strstr(s, f);
-        printf("%s\n", t);
+        printf("%s\n", (t == NULL ? "nil" : t));
 
 
 
