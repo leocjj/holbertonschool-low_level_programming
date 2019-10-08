@@ -2,8 +2,8 @@
 
 /**
  * set_string - sets the value of a pointer to a char
- * @a: matrix of integers.
- * @size: number of columns.
+ * @s: output.
+ * @to: input.
  *
  * Return: void
  */
