@@ -2,9 +2,9 @@
 
 /**
  * _puts_recursion - prints a string with recursion, followed by a new line.
- * @c: The character to print
+ * @s: The character to print
  *
- * Return: return a nonnegative number on success, or EOF on error.
+ * Return: void
  */
 void _puts_recursion(char *s)
 {
