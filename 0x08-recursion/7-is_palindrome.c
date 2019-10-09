@@ -22,11 +22,14 @@ char *last(char *s)
  * Return: returns 1 if the string is palindrome, otherwise return 0
  */
 
-int is_pal(char *s)
+int is_pal(char *s, char *ss)
 {
-	if (*s != *last(s))
+	if (*s != *ss)
 		return (0);
-	return (1);
+	if (s >= ss)
+		return (1);
+	else
+		return(is_pal (s + 1, ss - 1));
 }
 /**
  * is_palindrome - evaluates if the string is palindrome
@@ -38,8 +41,6 @@ int is_pal(char *s)
 int is_palindrome(char *s)
 {
 	if (*s == '\0')
-		return (0);
-	if (!*s)
 		return (1);
-	return (is_pal(s));
+	return (is_pal(s, last(s)));
 }
