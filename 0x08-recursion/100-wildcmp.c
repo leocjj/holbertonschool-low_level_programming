@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * wildcmp - compares two strings
+ * wildcmp - compares two strings.
  * @s: The string to print
  *
  * Return: 1 if the strings can be considered identical, otherwise return 0
