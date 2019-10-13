@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point
+ * main - Entry point.
  * @argc: number of arguments
  * @argv: array of pointer with arguments for main function.
  *
