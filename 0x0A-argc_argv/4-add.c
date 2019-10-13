@@ -3,7 +3,7 @@
 #include <ctype.h>
 
 /**
- * ispositive - evaluates if a string is a positive integer
+ * ispositive - evaluates if a string is a positive integer.
  * @s: string to evaluate
  *
  * Return: 0 (Success), 1 (Error)
