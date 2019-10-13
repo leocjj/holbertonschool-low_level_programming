@@ -4,7 +4,7 @@
 
 /**
  * ispositive - evaluates if a string is a positive integer
- * @s: string to evaluate.
+ * @s: string to evaluate
  *
  * Return: 0 (Success), 1 (Error)
  */
