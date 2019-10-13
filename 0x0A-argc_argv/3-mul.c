@@ -3,7 +3,7 @@
 
 /**
  * main - multiply two arguments
- * @argc: number of arguments
+ * @argc: number of arguments.
  * @argv: array of pointer with arguments for main function.
  *
  * Return: 0 (Success), 1 (Error)
