@@ -1,7 +1,6 @@
 #include <stdio.h>
 
 /**
-
  * main - Entry point
  * @c: The character to print
  *
