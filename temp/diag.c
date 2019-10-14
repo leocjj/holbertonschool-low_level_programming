@@ -23,5 +23,6 @@ int diag(int n)
 int main(int c)
 {
 	diag(2);
+	diag(4);
 	return (0);
 }
