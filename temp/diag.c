@@ -22,5 +22,5 @@ int diag(int n)
 int main(int c)
 {
 	diag(2);
-  return (0);
+	return (0);
 }
