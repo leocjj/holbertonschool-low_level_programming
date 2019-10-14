@@ -16,7 +16,8 @@ void print_number(int n)
 	{
 		_putchar('-');
 		a = n / max;
-		_putchar(-a + '0');
+		if (a != 0)
+			_putchar(-a + '0');
 		n %= max;
 		n *= -1;
 		max /= 10;
