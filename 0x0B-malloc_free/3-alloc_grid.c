@@ -2,35 +2,40 @@
 #include "holberton.h"
 
 /**
- * alloc_grid - returns a pointer to a 2 dimensional array of integers.
- * @width: width of the matrix to return (number of columns);
- * @height: hight of the matrix to return (number of rows);
+ * alloc_grid - Allocate a 2 dimensional array of integers
+ * @width: The width of the array
+ * @height: The height of the array
  *
- * Return: returns a pointer to a 2 dimensional array of integers.
+ * Return: Pointer to newly allocated space containing the array,
+ * or NULL if failure
  */
-
 int **alloc_grid(int width, int height)
 {
-	int i = 0, j = 0;
-	int **result;
+	int i, j;
+	int **grid;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	result = malloc(height * sizeof(int *));
-	if (result == NULL)
+	grid = malloc(sizeof(int *) * height);
+	if (grid == NULL)
 		return (NULL);
 
 	for (i = 0; i < height; i++)
 	{
-		result[i] = malloc(width * sizeof(int));
-		if (result[i] == NULL)
+		grid[i] = malloc(sizeof(int) * width);
+		if (grid[i] == NULL)
 		{
-			free (result);
+			free(grid);
+			for (j = 0; j <= i; j++)
+				free(grid[j]);
+
 			return (NULL);
 		}
+
 		for (j = 0; j < width; j++)
-			result[i][j] = 0;
+			grid[i][j] = 0;
 	}
-	return (result);
+
+	return (grid);
 }
