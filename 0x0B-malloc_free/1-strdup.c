@@ -4,8 +4,7 @@
 /**
  * _strdup - returns a pointer to a newly allocated space in memory,
  * which contains a copy of the string given as a parameter
- * @size: size of the array to create.
- * @c: character to initilize the array.
+ * @str: string to copy
  *
  * Return: returns a pointer to a newly allocated space in memory.
  */
@@ -20,12 +19,13 @@ char *_strdup(char *str)
 	for (i = 0; *(str + i) != '\0'; i++)
 		size++;
 
-	a = (char *) malloc(size * sizeof(char));
+	a = (char *) malloc((size + 1) * sizeof(char));
 	if (a == NULL)
 		return (NULL);
 
 	for (i = 0; i < size; i++)
 		*(a + i) = *(str + i);
 
+	*(a + size) = *(str + size);
 	return (a);
 }
