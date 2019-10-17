@@ -30,7 +30,8 @@ int digits(char *param)
 int main(int argc, char **argv)
 {
 	char *num1 = NULL, *num2 = NULL;
-	int size1 = 0, size2 = 0;
+	int *a = NULL, *b = NULL, *ans = NULL;
+	int size1 = 0, size2 = 0, i = 0, j = 0, tmp = 0;
 
 	num1 = *(argv + 1);
 	num2 = *(argv + 2);
@@ -50,43 +51,59 @@ int main(int argc, char **argv)
 	while (*(num2 + size2) != '\0')
 			size2++;
 
-	printf("Size1: %d Size2: %d Result: %d\n", size1, size2, atoi(*(argv + 1)) * atoi(*(argv + 2)));
+	a = malloc(size1 * sizeof(int));
+	if (a == NULL)
+	{
+		printf("Error\n");
+		exit (98);
+	}
+	b = malloc(size2 * sizeof(int));
+	if (b == NULL)
+	{
+		printf("Error\n");
+		exit (98);
+	}
+	ans = malloc((size1 + size2 + 2) * sizeof(char));
+	if (ans == NULL)
+	{
+		printf("Error\n");
+		exit (98);
+	}
+	for (i = 0; i < size1 + size2 + 2; i ++)
+		ans[i] = 0;
+
+	for (i = size1 - 1, j = 0; i >= 0; i--, j++)
+	{
+		a[j] = num1[i]-'0';
+	}
+	for (i = size2 - 1, j = 0; i >= 0; i--, j++)
+	{
+		b[j] = num2[i]-'0';
+	}
+	for (i = 0; i < size2; i++)
+	{
+		for(j = 0; j < size1; j++)
+		{
+			ans[i + j] += b[i] * a[j];
+		}
+	}
+	for(i = 0; i < size1 + size2; i++)
+	{
+		tmp = ans[i] / 10;
+		ans[i] = ans[i] % 10;
+		ans[i+1] = ans[i+1] + tmp;
+	}
+	for(i = size1 + size2; i >= 0; i--)
+	{
+		if(ans[i] > 0)
+			break;
+	}
+
+	for(; i >= 0; i--)
+	{
+		printf("%d", ans[i]);
+	}
+
+	free (ans);
 	return (0);
-}
-
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
-{
-	char *ptrNew = NULL, *ptrTemp = NULL;
-
-	unsigned int i = 0, min_size = 0;
-
-	if (new_size == old_size)
-		return (ptr);
-	else if (new_size >= old_size)
-		min_size = old_size;
-	else
-		min_size = new_size;
-
-	if (new_size == 0 && ptr != NULL)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	if (ptr == NULL)
-	{
-		free(ptr);
-		ptrNew = malloc(new_size);
-		return (ptrNew);
-	}
-
-	ptrNew = malloc(new_size);
-	if (ptrNew == NULL)
-		return (NULL);
-
-	ptrTemp = ptr;
-	for (i = 0; i < min_size; i++)
-		*(ptrNew + i) = *(ptrTemp + i);
-
-	free(ptr);
-	return ((void *)ptrNew);
 }
