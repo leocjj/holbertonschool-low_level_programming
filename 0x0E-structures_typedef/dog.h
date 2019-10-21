@@ -1,10 +1,19 @@
 #ifndef DOC_H
 #define DOC_H
 
-struct dog {\
-	char *name;\
-	float age;\
-	char *owner;\
+/**
+ * struct dog - data for each dog.
+ * @name: name
+ * @age: age
+ * @owner: owner
+ *
+ * Description: name, age and owner of the dog.
+ */
+struct dog
+{
+	char *name;
+	float age;
+	char *owner;
 };
 
 
