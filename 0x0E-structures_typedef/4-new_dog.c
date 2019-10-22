@@ -1,5 +1,4 @@
 #include "dog.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -13,7 +12,6 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int i = 0, len_name = 0, len_owner = 0;
-	char *name_copy, *owner_copy;
 	dog_t *dog_copy;
 
 	while (*(name + len_name) != '\0')
@@ -22,17 +20,28 @@ dog_t *new_dog(char *name, float age, char *owner)
 		len_owner++;
 
 	dog_copy = malloc(sizeof(dog_t));
-	name_copy = malloc(len_name * sizeof(char));
-	owner_copy = malloc(len_owner * sizeof(char));
-	if (dog_copy == NULL || name_copy == NULL || owner_copy == NULL)
-		return (NULL);
+	if (dog_copy == NULL)
+		return NULL;
 
-	for (i = 0; i < len_name; i++)
-		*(name_copy + i) = *(name + i);
+	(*dog_copy).name = malloc((len_name + 1) * sizeof(char));
+	if ((*dog_copy).name == NULL)
+	{
+		free(dog_copy);
+		return (NULL);
+	}
+	(*dog_copy).owner = malloc((len_owner + 1) * sizeof(char));
+	if ((*dog_copy).owner == NULL)
+	{
+		free((*dog_copy).name);
+		free(dog_copy);
+		return (NULL);
+	}
+
+	for (i = 0; i <= len_name; i++)
+		*((*dog_copy).name + i) = *(name + i);
 	for (i = 0; i < len_owner; i++)
-		*(owner_copy + i) = *(owner + i);
-	(*dog_copy).name  = name_copy;
+		*((*dog_copy).owner + i) = *(owner + i);
 	(*dog_copy).age = age;
-	(*dog_copy).owner  = owner_copy;
+
 	return (dog_copy);
 }
