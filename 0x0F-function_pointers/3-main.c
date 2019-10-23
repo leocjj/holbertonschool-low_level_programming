@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 		printf("Error\n");
 		exit(99);
 	}
-	if ((get_op_func(o) == op_div || get_op_func(o) == op_mod) && b == 0)
+	if ((*(argv + 2) == '/' || *(argv + 2) == %) && b == 0)
 	{
 		printf("Error\n");
 		exit(100);
