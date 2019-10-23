@@ -27,8 +27,9 @@ int main(int argc, char **argv)
 		exit(2);
 	}
 
-	while(bytes--)
+	while (bytes--)
 		printf("%02x ", *(ch++));
 
+	printf("\n");
 	return (0);
 }
