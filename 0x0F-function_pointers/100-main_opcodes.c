@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - main program.
+ * main - main program
  * @argc: number of parameter given to main.
  * @argv: double pointer with parameter given to main.
  *
@@ -12,7 +12,7 @@
 int main(int argc, char **argv)
 {
 	int bytes = 0;
-	char ch, *file_name;
+	unsigned char *ch = (char *) main;
 	FILE *fp;
 
 	if (argc != 2)
@@ -27,23 +27,8 @@ int main(int argc, char **argv)
 		exit(2);
 	}
 
-	file_name = *(argv + 0);
-	fp = fopen(file_name, "r");
-
-	if (fp == NULL)
-	{
-		perror("Error opening file.\n");
-		exit(EXIT_FAILURE);
-	}
-
-	printf("The contents of %s file are:\n", file_name);
-
 	while(bytes--)
-	{
-		ch = fgetc(fp);
-		printf("%x ", ch);
-	}
+		printf("%02x ", *(ch++));
 
-	fclose(fp);
 	return (0);
 }
