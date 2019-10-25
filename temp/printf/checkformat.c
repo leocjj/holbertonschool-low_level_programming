@@ -9,8 +9,33 @@
  * Return: number of characters printed.
  */
 
-char checkformat(char *str, va_list args)
+char *checkformat(char *str, va_list args)
 {
+	char *result;
+	va_list args;
 
-        return (str);
+
+	if (str == NULL)
+	{
+		return "";
+	}
+	if (args == NULL)
+	{
+		return "";
+	}
+	if (str == c)
+	{
+		result = va_arg(args, char*);
+	}
+	if (str == s)
+	{
+
+	}
+	if (str == %)
+	{
+		return "%";
+	}
+
+
+        return (retult);
 }
