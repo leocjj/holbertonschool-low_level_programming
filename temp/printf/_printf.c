@@ -11,13 +11,26 @@
 
 int _printf(const char *format, ...)
 {
-        va_list arg;
+        va_list args;
         int i, characters_printed;
         char buffer[1024];
 
-        va_start (arg, format);
+        va_start (args, format);
 
+        for (i = 0; *(format + i) != NULL; i ++)
+	{
+		if (*(format + i) == '%')
+			if (*(format + i - 1) != '\\')
+			{
+					char *temp = checkformat((format + i), args)
+					buffer[i] = concatenate(buffer, temp);
+			}
+			else
+				buffer[i] = '%';
+		else
+			buffer[i] = *(format + i);
+	}
 
-	va_end (arg);
+	va_end (args);
         return (characters_printed);
 }
