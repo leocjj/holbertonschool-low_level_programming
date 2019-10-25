@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "holberton.h"
 
 /**
  * concatenate - Function that concatenate two strings.

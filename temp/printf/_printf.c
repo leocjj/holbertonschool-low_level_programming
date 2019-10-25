@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "holberton.h"
 
 /**
  * _printf - function that prints formated text in standard output
@@ -17,7 +18,7 @@ int _printf(const char *format, ...)
 
         va_start (args, format);
 
-        for (i = 0; *(format) != NULL; format++)
+        for (i = 0; *format != NULL; format++)
 	{
 		if (*(format) == '%')
 			if (*(format - 1) != '\\')
