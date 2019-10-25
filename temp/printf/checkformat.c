@@ -25,11 +25,11 @@ char *checkformat(char *str, va_list args)
 	}
 	if (str == c)
 	{
-		result = va_arg(args, char*);
+		result = va_arg(args, int);
 	}
 	if (str == s)
 	{
-
+		result = va_arg(args, char*);
 	}
 	if (str == %)
 	{
