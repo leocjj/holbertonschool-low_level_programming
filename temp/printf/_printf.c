@@ -14,8 +14,9 @@ int _printf(const char *format, ...)
 {
         va_list args;
         int i, characters_printed;
-        char buffer[1024];
+        char *buffer;
 
+	buffer = malloc(1024);
         va_start (args, format);
 
         for (i = 0; *format != NULL; format++)
