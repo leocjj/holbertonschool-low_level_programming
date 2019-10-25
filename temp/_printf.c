@@ -4,10 +4,10 @@
 #include "holberton.h"
 
 /**
- * _printf - function that prints formated text in standard output
+ * _printf - function that prints formated text in standard output.
  * @format: text and format to be printed.
  *
- * Return: number of characters printed.
+ * Return: number of characters printed
  */
 
 int _printf(const char *format, ...)
