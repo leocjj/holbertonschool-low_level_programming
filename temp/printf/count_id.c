@@ -5,7 +5,7 @@
 
 /**
  * *count_id - Function that return the length of the parameter.
- * @count1: Length of the printf argument
+ * @count1: Length of the printf argument.
  * Return: Return the length of the argument.
  */
 
