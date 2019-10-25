@@ -17,18 +17,18 @@ int _printf(const char *format, ...)
 
         va_start (args, format);
 
-        for (i = 0; *(format + i) != NULL; i ++)
+        for (i = 0; *(format) != NULL; format++)
 	{
-		if (*(format + i) == '%')
-			if (*(format + i - 1) != '\\')
+		if (*(format) == '%')
+			if (*(format - 1) != '\\')
 			{
-					char *temp = checkformat((format + i), args)
-					buffer[i] = concatenate(buffer, temp);
+				char *temp = checkformat(&format , args)
+				buffer = concatenate(buffer, temp);
 			}
 			else
-				buffer[i] = '%';
+				buffer = concatenate(buffer, "%");
 		else
-			buffer[i] = *(format + i);
+			buffer = concatenate(buffer, *format);
 	}
 
 	va_end (args);
