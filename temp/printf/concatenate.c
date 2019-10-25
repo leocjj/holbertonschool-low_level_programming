@@ -47,3 +47,4 @@ char *concatenate(char *s1, char *s2)
 		s[i + a] = s2[a];
 	}
 	return (s);
+}

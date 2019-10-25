@@ -19,12 +19,12 @@ int _printf(const char *format, ...)
 	buffer = malloc(1024);
         va_start (args, format);
 
-        for (i = 0; *format != NULL; format++)
+        for (i = 0; *format != '\0'; format++)
 	{
 		if (*(format) == '%')
 			if (*(format - 1) != '\\')
 			{
-				char *temp = checkformat(&format , args)
+				char *temp = checkformat(&format , args);
 				buffer = concatenate(buffer, temp);
 			}
 			else
