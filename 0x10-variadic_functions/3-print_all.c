@@ -33,10 +33,9 @@ void print_all(const char * const format, ...)
 			case 'f':
 				printf("%f", va_arg(args, double));
 				break;
-
 			case 's':
 				temp = va_arg(args, char *);
-				if (!temp)
+				if (temp == NULL)
 					temp = "(nil)";
 				printf("%s", temp);
 				break;
@@ -44,7 +43,7 @@ void print_all(const char * const format, ...)
 				separator = 0;
 				break;
 			}
-			if (*(format + i) && separator)
+			if (*(format + i + 1) && separator)
 				printf(", ");
 			i++;
 		}
