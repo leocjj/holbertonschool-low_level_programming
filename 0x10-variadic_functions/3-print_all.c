@@ -3,51 +3,49 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - print all parameter with format.
- * @format: string to specify format. c: char, i: integer, f: float, s: char *
- * (if the string is NULL, print (nil) instead. Any other should be ignored.
- *
- * Return: void.
+ * print_all - Print characters, integers, floats, and strings
+ * @format: List of types of arguments passed to the function
+ * (c for character, i for integer, f for float, s for char *)
  */
-
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, separator = 1;
-	va_list args;
-	char *temp;
+	va_list valist;
+	unsigned int print, i = 0;
+	char *string;
 
-	while (format != NULL)
+	while (format)
 	{
-		va_start(args, format);
-		while (*(format + i))
+		va_start(valist, format);
+		while (format[i])
 		{
-			separator = 1;
-			switch (*(format + i))
+			print = 1;
+			switch (format[i])
 			{
 			case 'c':
-				printf("%c", va_arg(args, int));
+				printf("%c", va_arg(valist, int));
 				break;
 			case 'i':
-				printf("%i", va_arg(args, int));
+				printf("%d", va_arg(valist, int));
 				break;
 			case 'f':
-				printf("%f", va_arg(args, double));
+				printf("%f", va_arg(valist, double));
 				break;
 			case 's':
-				temp = va_arg(args, char *);
-				if (temp == NULL)
-					temp = "(nil)";
-				printf("%s", temp);
+				string = va_arg(valist, char *);
+				if (!string)
+					string = "(nil)";
+				printf("%s", string);
 				break;
 			default:
-				separator = 0;
+				print = 0;
 				break;
 			}
-			if (*(format + i) != '\0' && separator)
+			if (format[i + 1] && print)
 				printf(", ");
 			i++;
 		}
-		va_end(args);
+
+		va_end(valist);
 		break;
 	}
 	printf("\n");
