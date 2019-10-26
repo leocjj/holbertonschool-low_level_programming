@@ -1,7 +1,7 @@
-global start
+global main
 
 section .text
-start:
+main:
 	mov rax, 1
 	mov rdi, 1
 	mov rsi, message
@@ -12,5 +12,5 @@ start:
 	xor rdi, rdi
   syscall
 
-	message:
-	db "Hello, Holberton", 10
+section	.data
+message: db "Hello, Holberton", 10
