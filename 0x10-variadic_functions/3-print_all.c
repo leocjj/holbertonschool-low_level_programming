@@ -41,15 +41,14 @@ void print_all(const char * const format, ...)
 				break;
 			default:
 				separator = 0;
-				i++;
-				continue;
+				break;
 			}
 			if (*(format + i) != '\0' && separator)
 				printf(", ");
 			i++;
 		}
+		va_end(args);
 		break;
 	}
 	printf("\n");
-	va_end(args);
 }
