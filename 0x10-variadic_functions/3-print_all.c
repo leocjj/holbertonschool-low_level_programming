@@ -12,29 +12,20 @@
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, size = 0, tempo = 0;
+	unsigned int i = 0, size = 0;
 	va_list args;
 	char *temp;
 
-	if (format == NULL || *format == 0)
-	{
-		printf("\n");
-		return;
-	}
 	va_start(args, format);
 	while (*(format + size) != '\0')
 		size++;
 
-	while (i < size)
+	while (*(format + i))
 	{
 		switch (*(format + i))
 		{
 		case 'c':
-			tempo = va_arg(args, int);
-			if (tempo == 0)
-				printf("(nil)");
-			else
-				printf("%c", tempo);
+			printf("%c", va_arg(args, int));
 			break;
 		case 'i':
 			printf("%i", va_arg(args, int));
@@ -45,9 +36,8 @@ void print_all(const char * const format, ...)
 		case 's':
 			temp = va_arg(args, char *);
 			if (temp == NULL)
-				printf("(nil)");
-			else
-				printf("%s", temp);
+				temp = "(nil)";
+			printf("%s", temp);
 			break;
 		default:
 			i++;
