@@ -2,10 +2,10 @@ global start
 
 section .text
 start:
-mov rax, 1
+	mov rax, 1
 	mov rdi, 1
 	mov rsi, message
-	mov rdx, 13
+	mov rdx, 17
   syscall
 
 	mov eax, 60
@@ -13,4 +13,4 @@ mov rax, 1
   syscall
 
 	message:
-	db "Hello, Holberton\n", 16
+	db "Hello, Holberton", 10
