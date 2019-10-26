@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "variadic_functions.h"
 
 /**
  * print_all - print all parameter with format.
@@ -11,10 +12,15 @@
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, size = 0;
+	unsigned int i = 0, size = 0, tempo = 0;
 	va_list args;
 	char *temp;
 
+	if (format == NULL || *format == 0)
+	{
+		printf("\n");
+		return;
+	}
 	va_start(args, format);
 	while (*(format + size) != '\0')
 		size++;
@@ -24,7 +30,11 @@ void print_all(const char * const format, ...)
 		switch (*(format + i))
 		{
 		case 'c':
-			printf("%c", va_arg(args, int));
+			tempo = va_arg(args, int);
+			if (tempo == 0)
+				printf("(nil)");
+			else
+				printf("%c", tempo);
 			break;
 		case 'i':
 			printf("%i", va_arg(args, int));
