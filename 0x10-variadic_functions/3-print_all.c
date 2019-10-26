@@ -12,17 +12,17 @@
 
 void print_all(const char * const format, ...)
 {
+	unsigned int i = 0, separator = 1;
 	va_list args;
-	unsigned int separator, i = 0;
 	char *temp;
 
 	while (format)
 	{
 		va_start(args, format);
-		while (format[i])
+		while (*(format + i))
 		{
 			separator = 1;
-			switch (format[i])
+			switch (*(format + i))
 			{
 			case 'c':
 				printf("%c", va_arg(args, int));
@@ -33,6 +33,7 @@ void print_all(const char * const format, ...)
 			case 'f':
 				printf("%f", va_arg(args, double));
 				break;
+
 			case 's':
 				temp = va_arg(args, char *);
 				if (!temp)
