@@ -26,8 +26,7 @@ int _printf(const char *format, ...)
 		if (*(format + i) == '%')
 			if (*(format + i - 1) != '\\')
 			{
-				count = 1;
-				printf(":%d:", count_id(format + i));
+				count = count_id(format + i);
                                 if (count == 0)
 					break;
 				/*char *temp = checkformat(format + i, args);*/
@@ -39,7 +38,6 @@ int _printf(const char *format, ...)
 				buffer = concatenate(buffer, "%");
 				i++;/* Jump over the second % */
 			}
-
 		else
 			*(buffer + i) = *(format + i);/* Adds a char to buffer */
 	}
