@@ -7,22 +7,22 @@
  * @format: string to specify format. c: char, i: integer, f: float, s: char *
  * (if the string is NULL, print (nil) instead. Any other should be ignored.
  *
- * Return: void.
+ * Return: void
  */
 
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, separator = 1;
 	va_list args;
+	unsigned int separator, i = 0;
 	char *temp;
 
 	while (format)
 	{
 		va_start(args, format);
-		while (*(format + i))
+		while (format[i])
 		{
 			separator = 1;
-			switch (*(format + i))
+			switch (format[i])
 			{
 			case 'c':
 				printf("%c", va_arg(args, int));
