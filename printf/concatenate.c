@@ -12,39 +12,33 @@
 
 char *concatenate(char *s1, char *s2)
 {
-	int j, i, k, a;
-	char *s;
+	int size_of_s1 = 0, size_of_s2 = 0, i = 0, j = 0;
+	char *s = NULL;
 
 	if (s1 == NULL)
-	{
-		s1 = "";
-	}
+		size_of_s1 = 0;
+	else
+		while (s1[size_of_s1] != '\0')
+			size_of_s1++;
+
 	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-	i = 0;
-	while (s1[i] != '\0')
-	{
-		i++;
-	}
-	j = 0;
-	while (s2[j] != '\0')
-	{
-		j++;
-	}
-	s = malloc(sizeof(char) * (i + j + 1));
+		size_of_s2 = 0;
+	else
+		while (s2[size_of_s2] != '\0')
+			size_of_s2++;
+
+	if (size_of_s1 == 0 && size_of_s2 == 0)
+		return (NULL);
+
+	s = malloc(sizeof(char) * (size_of_s1 + size_of_s2 + 1));
 	if (s == NULL)
-	{
-		return ('\0');
-	}
-	for (k = 0; k < i; k++)
-	{
-		s[k] = s1[k];
-	}
-	for (a = 0; a < j; a++)
-	{
-		s[i + a] = s2[a];
-	}
+		return (NULL);
+
+	for (i = 0; i < size_of_s1; i++)
+		s[i] = s1[i];
+	for (j = 0; j < size_of_s2; j++)
+		s[i + j] = s2[j];
+
+	s[i + j + 1] = '\0';
 	return (s);
 }
