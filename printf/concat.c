@@ -4,6 +4,36 @@
 #include "holberton.h"
 
 /**
+ * size_temp - Function that calculate the size of string.
+ * @temp_s: string calculate size.
+ *
+ * Return: size of the string.
+ */
+
+int size_temp(char *temp_s)
+{
+	int j = 0;
+	for (j = 0; j < buffer_size; j++)
+		if ( *(temp_s + j) == '\0')
+			return (j);
+	return (j);
+}
+
+/**
+ * free_temp - Function to clear buffer.
+ * @temp_s: buffer to be cleared
+ *
+ * Return: void
+ */
+
+void free_temp(char *temp_s)
+{
+	int j = 0;
+	for (j = 0; j < buffer_size; j++)
+		*(temp_s + j) = '\0';
+}
+
+/**
  * concat - Function that concatenate two strings.
  * @s1: string to which it should be added.
  * @s2: String to be add.

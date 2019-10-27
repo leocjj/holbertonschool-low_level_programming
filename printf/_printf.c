@@ -6,23 +6,6 @@ BB#include <stdarg.h>
 
 #include <stdio.h>
 
-int size_temp(char *temp_s)
-{
-	int j = 0;
-	for (j = 0; j < buffer_size; j++)
-		if ( *(temp_s + j) == '\0')
-			return (j);
-	return (j);
-}
-
-void free_temp(char *temp_s)
-{
-	int j = 0;
-	for (j = 0; j < buffer_size; j++)
-		*(temp_s + j) = '\0';
-}
-
-
 /**
  * _printf - function that prints formated text in standard output.
  * @format: text and format to be printed.
