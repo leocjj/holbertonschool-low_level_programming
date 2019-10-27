@@ -6,7 +6,7 @@
 /**
  * *count_id - Function that return the length of the parameter.
  * @count: length of the printf argument conversion.
- * Return: return the length of the argument conversion.
+ * Return: return the length of the argument conversion
  */
 
 int count_id(const char *count)
@@ -15,7 +15,7 @@ int count_id(const char *count)
 	char letters[] = "csdefgiosukxpXGFE";
 
 	if (count == NULL)
-		return NULL;
+		return (0);
 	for (size_letters = 0; letters[size_letters] != '\0'; size_letters++)
 		;
 	for (i = 1; count[i] != '\0'; i++)
