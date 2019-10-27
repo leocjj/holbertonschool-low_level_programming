@@ -2,8 +2,18 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "holberton.h"
+#define buffer_size 1024
 
 #include <stdio.h>
+
+void free_temp(char *temp_s)
+{
+	int j = 0;
+	for (j = 0; j < buffer_size; j++)
+		*(temp_s + j) = '\0';
+}
+
+
 /**
  * _printf - function that prints formated text in standard output.
  * @format: text and format to be printed.
@@ -23,10 +33,10 @@ int _printf(const char *format, ...)
 	if (format == NULL)
 		return (0);
 
-	buffer = malloc(1024 * sizeof(char));
+	buffer = malloc(buffer_size * sizeof(char));
 	if (buffer == NULL)
 		return (0);
-	temp_s = malloc(1024 * sizeof(char));
+	temp_s = malloc(buffer_size * sizeof(char));
 	if (temp_s == NULL)
 		return (0);
 
@@ -42,17 +52,19 @@ int _printf(const char *format, ...)
 			/*char *temp = checkformat(format + i, args);*/
 			if(*(format + i + count_conversion) == 'c')
 			{
+				free_temp(temp_s);
 				temp_d = va_arg(args, int);	/*if (temp_d == 0)] ????*/
 				*(temp_s + 0) = temp_d;
 				*(temp_s + 1) = '\0';
-				temp_s = concatenate(buffer, temp_s);
+				temp_s = concat(buffer, temp_s);
 				if (temp_s != NULL)
 					buffer = temp_s;
 			}
 			if(*(format + i + count_conversion) == 's')
 			{
+				free_temp(temp_s);
 				temp_s = va_arg(args, char *);
-				temp_s = concatenate(buffer, temp_s);
+				temp_s = concat(buffer, temp_s);
 				if (temp_s != NULL)
 					buffer = temp_s;
 			}
