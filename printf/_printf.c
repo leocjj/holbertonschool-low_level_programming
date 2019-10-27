@@ -1,10 +1,19 @@
-#include <stdarg.h>
+BB#include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "holberton.h"
 #define buffer_size 1024
 
 #include <stdio.h>
+
+int size_temp(char *temp_s)
+{
+	int j = 0;
+	for (j = 0; j < buffer_size; j++)
+		if ( *(temp_s + j) == '\0')
+			return (j);
+	return (j);
+}
 
 void free_temp(char *temp_s)
 {
@@ -40,6 +49,8 @@ int _printf(const char *format, ...)
 	if (temp_s == NULL)
 		return (0);
 
+	free_temp(temp_s);
+	free_temp(buffer);
         va_start(args, format);
 
         for (i = 0, j = 0; *(format + i) != '\0'; i++, j++)
@@ -64,6 +75,7 @@ int _printf(const char *format, ...)
 			{
 				free_temp(temp_s);
 				temp_s = va_arg(args, char *);
+				j += size_temp(temp_s) - 1;
 				temp_s = concat(buffer, temp_s);
 				if (temp_s != NULL)
 					buffer = temp_s;
@@ -76,7 +88,7 @@ int _printf(const char *format, ...)
 
 	chars_printed = write(1, buffer, j);
 
-	va_end (args);
+	va_end(args);
 	free(buffer);
         return (chars_printed);
 }
