@@ -20,8 +20,6 @@ int _printf(const char *format, ...)
 
 	(void) temp_f;
 
-	(void) temp_s;
-
 	if (format == NULL)
 		return (0);
 
@@ -42,11 +40,18 @@ int _printf(const char *format, ...)
 			if (count_conversion == 0)
 				break;
 			/*char *temp = checkformat(format + i, args);*/
-			if(*(format + i + 1) == 'c')
+			if(*(format + i + count_conversion) == 'c')
 			{
-				temp_d = va_arg(args, int);
+				temp_d = va_arg(args, int);	/*if (temp_d == 0)] ????*/
 				*(temp_s + 0) = temp_d;
 				*(temp_s + 1) = '\0';
+				temp_s = concatenate(buffer, temp_s);
+				if (temp_s != NULL)
+					buffer = temp_s;
+			}
+			if(*(format + i + count_conversion) == 's')
+			{
+				temp_s = va_arg(args, char *);
 				temp_s = concatenate(buffer, temp_s);
 				if (temp_s != NULL)
 					buffer = temp_s;
@@ -57,7 +62,7 @@ int _printf(const char *format, ...)
 			*(buffer + j) = *(format + i);/* Adds a char to buffer */
 	}
 
-	write(1, buffer, j);
+	chars_printed = write(1, buffer, j);
 
 	va_end (args);
 	free(buffer);
