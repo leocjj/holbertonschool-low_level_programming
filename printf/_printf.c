@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include "holberton.h"
 
+#include <stdio.h>
 /**
  * _printf - function that prints formated text in standard output.
  * @format: text and format to be printed.
@@ -13,12 +14,13 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, temp_d = 0, count_conversion = 0, chars_printed = 0;
+	int i = 0, j = 0, temp_d = 0, count_conversion = 0, chars_printed = 0;
 	double temp_f = 0.0;
 	char *buffer = NULL, *temp_s = NULL;
 
 	(void) temp_f;
-	(void) temp_d;
+
+	(void) temp_s;
 
 	if (format == NULL)
 		return (0);
@@ -26,37 +28,36 @@ int _printf(const char *format, ...)
 	buffer = malloc(1024 * sizeof(char));
 	if (buffer == NULL)
 		return (0);
+	temp_s = malloc(1024 * sizeof(char));
+	if (temp_s == NULL)
+		return (0);
 
         va_start(args, format);
 
-        for (i = 0; *(format + i) != '\0'; i++)
+        for (i = 0, j = 0; *(format + i) != '\0'; i++, j++)
 	{
 		if (*(format + i) == '%')
-			if (*(format + i - 1) != '\\')
+		{
+			count_conversion = count_id(format + i);
+			if (count_conversion == 0)
+				break;
+			/*char *temp = checkformat(format + i, args);*/
+			if(*(format + i + 1) == 'c')
 			{
-				count_conversion = count_id(format + i);
-                                if (count_conversion == 0)
-					break;
-				/*char *temp = checkformat(format + i, args);*/
-				if(*(format + i + 1) == 'c')
-				{
-					*(temp_s + 0) = va_arg(args, int);
-					*(temp_s + 1) = '\0';
-					temp_s = concatenate(buffer, temp_s);
-					if (temp_s != NULL)
-						buffer = temp_s;
-				}
+				temp_d = va_arg(args, int);
+				*(temp_s + 0) = temp_d;
+				*(temp_s + 1) = '\0';
+				temp_s = concatenate(buffer, temp_s);
+				if (temp_s != NULL)
+					buffer = temp_s;
 			}
-			else
-			{
-				buffer = concatenate(buffer, "%");
-				i++;/* Jump over the second % */
-			}
+			i += count_conversion;
+		}
 		else
-			*(buffer + i) = *(format + i);/* Adds a char to buffer */
+			*(buffer + j) = *(format + i);/* Adds a char to buffer */
 	}
 
-	write(1, buffer, i);
+	write(1, buffer, j);
 
 	va_end (args);
 	free(buffer);
