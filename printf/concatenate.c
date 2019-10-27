@@ -7,7 +7,7 @@
  * concatenate - Function that concatenate two strings.
  * @s1: string to which it should be added.
  * @s2: String to be add.
- * Return: String already concatenate.
+ * Return: String already concatenate
  */
 
 char *concatenate(char *s1, char *s2)
