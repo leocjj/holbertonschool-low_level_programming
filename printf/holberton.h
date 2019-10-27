@@ -4,8 +4,11 @@
 
 int _printf(const char *format, ...);
 char *checkformat(char *str, va_list args);
-char *concatenate(char *s1, char *s2);
 int count_id(const char *count1);
-char *char_tostring(int n);
+
+int size_temp(char *temp_s)
+void free_temp(char *temp_s);
+char *concat(char *s1, char *s2);
+
 
 #endif
