@@ -14,25 +14,24 @@
 
 int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 {
-	int result = 0;
-	unsigned long int power = 1;
-	long double binary = 0;
+	int result = 0, i = 0, j = 0;
+	int temp[32];
 
 	if (integer == 0)
 	{
 		result += concat_c(buffer, '0', chars_printed);
 		return (result);
 	}
-	while (integer / 2 > 0)
+
+	for (j = 0; integer > 0; j++)
 	{
-		binary += (integer % 2) * power;
+		temp[j] = integer % 2;
 		integer /= 2;
-		power *= 10;
 	}
-	binary += (integer % 2) * power;
-	integer /= 2;
-	power *= 10;
-	result += concat_l(buffer, binary, chars_printed);
+
+	for (i = j - 1; i >= 0; i--)
+		result += concat_c(buffer, temp[i], chars_printed);
+
 	return (result);
 }
 
