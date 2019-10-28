@@ -37,8 +37,9 @@ void free_temp(char *temp_s)
 
 /**
  * concat_c - Function that concatenate a strings with a char.
- * @s1: string to which it should be added.
- * @s2: String to be add.
+ * @buffer: string base to add the next parameter.
+ * @args: argument with string to be add.
+ *
  * Return: String already concatenate
  */
 void concat_c(char *buffer, va_list args)
@@ -46,7 +47,7 @@ void concat_c(char *buffer, va_list args)
 	int temp_d;
 
 	char b[] = {'\0', '\0'};
-        char *temp_c = b;
+	char *temp_c = b;
 
 	temp_d = va_arg(args, int);	/*if (temp_d == 0)] ????*/
 	*(temp_c + 0) = temp_d;
