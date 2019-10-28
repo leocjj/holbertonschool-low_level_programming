@@ -50,8 +50,8 @@ void concat_i(char *buffer, int integer, int *chars_printed)
 
 	if (integer < 0)
 	{
-		concat_c(buffer, '-', &chars_printed);
-		concat_c(buffer, -(integer / max) + '0', &chars_printed);
+		concat_c(buffer, '-', chars_printed);
+		concat_c(buffer, -(integer / max) + '0', chars_printed);
 		integer %= max;
 		integer *= -1;
 		max /= 10;
@@ -67,7 +67,7 @@ void concat_i(char *buffer, int integer, int *chars_printed)
 	while (max >= 1)
 	{
 		temp = integer / max;
-		concat_c(buffer, temp + '0', &chars_printed);
+		concat_c(buffer, temp + '0', chars_printed);
 		integer -= max * temp;
 		max /= 10;
 	}
