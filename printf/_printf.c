@@ -26,16 +26,15 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
-			/*if (*(format + i + 1) == '%')
-				concat_c(buffer, '%', &chars_printed);*/
 			count_conversion = count_id(format + i);
 			if (count_conversion == 0)
-			{
-				/*concat_c(buffer, '%', &chars_printed);*/
 				continue;
-			}
 			switch (*(format + i + count_conversion))
 			{
+			case 'i':
+			case 'd':
+				concat_i(buffer, va_arg(args, int), &chars_printed);
+				break;
 			case 'c':
 				concat_c(buffer, va_arg(args, int), &chars_printed);
 				break;
