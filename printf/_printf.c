@@ -2,7 +2,6 @@ BB#include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include "holberton.h"
-#define buffer_size 1024
 
 #include <stdio.h>
 
