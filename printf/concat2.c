@@ -48,7 +48,7 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 int concat_l(char *buffer, long double integer, int *chars_printed)
 {
 	int result = 0, temp = 0;
-	long double max = 100000000000000000000000000000000;
+	long double max = 10000000000000000000000000000000;
 
 	if (integer == 0)
 	{
