@@ -15,7 +15,8 @@
 int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 {
 	int result = 0;
-	unsigned long int power = 1, binary = 0;
+	unsigned long int power = 1;
+	long double binary = 0;
 
 	if (integer == 0)
 	{
@@ -44,22 +45,21 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed)
  * Return: number of character added.
  */
 
-int concat_l(char *buffer, unsigned long int integer, int *chars_printed)
+int concat_l(char *buffer, long double integer, int *chars_printed)
 {
-	int result = 0;
-	unsigned long int max = 1000000000000000000;
-	unsigned long int temp = 0;
+	int result = 0, temp = 0;
+	long double max = 100000000000000000000000000000000;
 
 	if (integer == 0)
 	{
 		result += concat_c(buffer, '0', chars_printed);
 		return (result);
 	}
-	while (integer / max == 0)
+	while ( (int)(integer / max) == 0)
 		max /= 10;
 	while (max >= 1)
 	{
-		temp = integer / max;
+		temp = (int)(integer / max);
 		result += concat_c(buffer, temp + '0', chars_printed);
 		integer -= max * temp;
 		max /= 10;
