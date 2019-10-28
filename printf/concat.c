@@ -36,12 +36,11 @@ void free_temp(char *temp_s)
 }
 
 /**
- * concat - Function that concatenate two strings.
+ * concat_c - Function that concatenate a strings with a char.
  * @s1: string to which it should be added.
  * @s2: String to be add.
  * Return: String already concatenate
  */
-
 void concat_c(char *buffer, va_list args)
 {
 	int temp_d;
@@ -55,8 +54,13 @@ void concat_c(char *buffer, va_list args)
 	concat(buffer, temp_c);
 }
 
-
-char *concat(char *s1, char *s2)
+/**
+ * concat - Function that concatenate two strings.
+ * @s1: string to which it should be added.
+ * @s2: String to be add.
+ * Return: number of character added.
+ */
+int concat(char *s1, char *s2)
 {
 	int size_of_s1 = 0, size_of_s2 = 0, j = 0;
 
@@ -80,5 +84,5 @@ char *concat(char *s1, char *s2)
 		s1[size_of_s1 + j] = s2[j];
 
 	s1[size_of_s1 + size_of_s2 + 1] = '\0';
-	return (s1);
+	return (size_of_s2);
 }
