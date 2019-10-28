@@ -63,7 +63,7 @@ void concat_c(char *buffer, va_list args, int *chars_printed)
  */
 int concat(char *s1, char *s2, int *chars_printed)
 {
-	int size_of_s1 = 0, size_of_s2 = 0, j = 0, temp = 0;
+	int size_of_s1 = 0, size_of_s2 = 0, j = 0;
 	char *n = "(null)";
 
 	if (s1 == NULL)
