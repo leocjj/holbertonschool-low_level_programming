@@ -34,7 +34,6 @@ int _printf(const char *format, ...)
 				concat_c(buffer, '%', &chars_printed);
 				continue;
 			}
-
 			switch (*(format + i + count_conversion))
 			{
 			case 'c':
@@ -44,7 +43,6 @@ int _printf(const char *format, ...)
 				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
 				break;
 			}
-			/*char *temp = checkformat(format + i, args);*/
 			i += count_conversion;
 		}
 		else

@@ -38,7 +38,8 @@ void free_temp(char *temp_s)
 /**
  * concat_c - Function that concatenate a strings with a char.
  * @buffer: string base to add the next parameter.
- * @args: argument with string to be add.
+ * @character: character to add.
+ * @chars_printed: chars printed.
  *
  * Return: String already concatenate
  */
@@ -61,6 +62,8 @@ void concat_c(char *buffer, int character, int *chars_printed)
  * concat - Function that concatenate two strings.
  * @s1: string to which it should be added.
  * @s2: String to be add.
+ * @chars_printed: chars printed.
+ *
  * Return: number of character added.
  */
 int concat(char *s1, char *s2, int *chars_printed)
