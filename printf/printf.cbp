@@ -34,10 +34,13 @@
 		<Unit filename="_printf.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="checkformat.c">
+		<Unit filename="concat.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="concatenate.c">
+		<Unit filename="concat2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="count_id.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="holberton.h" />

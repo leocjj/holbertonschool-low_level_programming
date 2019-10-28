@@ -41,7 +41,7 @@ void free_temp(char *temp_s)
  * @integer: integer to add.
  * @chars_printed: chars printed.
  *
- * Return: void.
+ * Return: number of character added.
  */
 
 int concat_i(char *buffer, int integer, int *chars_printed)
@@ -80,7 +80,7 @@ int concat_i(char *buffer, int integer, int *chars_printed)
  * @character: character to add.
  * @chars_printed: chars printed.
  *
- * Return: String already concatenate
+ * Return: number of character added.
  */
 /*void concat_c(char *buffer, va_list args, int *chars_printed)*/
 int concat_c(char *buffer, int character, int *chars_printed)
