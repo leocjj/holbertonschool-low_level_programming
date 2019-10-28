@@ -12,5 +12,6 @@ void free_temp(char *temp_s);
 int concat_c(char *buffer, int character, int *chars_printed);
 int concat(char *buffer, char *s2, int *chars_printed);
 int concat_i(char *buffer, int integer, int *chars_printed);
+int concat_b(char *buffer, unsigned int integer, int *chars_printed);
 
 #endif
