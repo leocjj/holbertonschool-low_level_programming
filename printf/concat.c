@@ -66,7 +66,7 @@ int concat(char *s1, char *s2)
 
 	if (s1 == NULL)
 	{
-		return (NULL);
+		return (0);
 	}
 	else
 		while (s1[size_of_s1] != '\0')
@@ -74,7 +74,7 @@ int concat(char *s1, char *s2)
 
 	if (s2 == NULL)
 	{
-		return (s1);
+		return (0);
 	}
 	else
 		while (s2[size_of_s2] != '\0')
