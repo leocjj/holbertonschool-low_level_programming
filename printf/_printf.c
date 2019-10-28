@@ -43,7 +43,6 @@ int _printf(const char *format, ...)
 			default:
 				concat_c(buffer, '%', &chars_printed);
 			}
-			i += 1;
 		}
 		else
 			concat_c(buffer, *(format + i), &chars_printed);
