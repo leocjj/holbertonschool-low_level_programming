@@ -14,7 +14,7 @@ int size_temp(char *temp_s)
 {
 	int j = 0;
 
-	for (j = 0;j < buffer_size; j++)
+	for (j = 0; j < buffer_size; j++)
 		if (*(temp_s + j) == '\0')
 			return (j);
 	return (j);
