@@ -42,7 +42,7 @@ void free_temp(char *temp_s)
  *
  * Return: String already concatenate
  */
-void concat_c(char *buffer, va_list args)
+void concat_c(char *buffer, va_list args, int *chars_printed)
 {
 	int temp_d;
 
@@ -52,7 +52,7 @@ void concat_c(char *buffer, va_list args)
 	temp_d = va_arg(args, int);	/*if (temp_d == 0)] ????*/
 	*(temp_c + 0) = temp_d;
 	*(temp_c + 1) = '\0';
-	concat(buffer, temp_c);
+	concat(buffer, temp_c, int *chars_printed);
 }
 
 /**
