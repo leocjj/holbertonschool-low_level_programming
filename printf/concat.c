@@ -56,7 +56,7 @@ void concat_i(char *buffer, int integer, int *chars_printed)
 		integer *= -1;
 		max /= 10;
 	}
-	while (integer / max)
+	while (integer / max == 0)
 		max /= 10;
 
 	if (integer == 0)
