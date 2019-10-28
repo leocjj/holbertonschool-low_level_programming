@@ -30,7 +30,10 @@ int _printf(const char *format, ...)
 				concat_c(buffer, '%', &chars_printed);
 			count_conversion = count_id(format + i);
 			if (count_conversion == 0)
+			{
 				concat_c(buffer, '%', &chars_printed);
+				continue;
+			}
 
 			switch (*(format + i + count_conversion))
 			{
