@@ -74,6 +74,7 @@ int concat(char *s1, char *s2)
 
 	if (s2 == NULL)
 	{
+		concat(s1, "(NULL)")
 		return (0);
 	}
 	else
