@@ -74,8 +74,8 @@ int concat(char *s1, char *s2)
 
 	if (s2 == NULL)
 	{
-		concat(s1, "(NULL)");
-		return (0);
+		*s2 = "(NULL)";
+		size_of_s2 = 6;
 	}
 	else
 		while (s2[size_of_s2] != '\0')
