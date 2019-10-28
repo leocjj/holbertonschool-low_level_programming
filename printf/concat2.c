@@ -44,7 +44,8 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 int concat_l(char *buffer, unsigned long int integer, int *chars_printed)
 {
 	int result = 0;
-	unsigned long int max = 10000000000000000000, temp = 0;
+	unsigned long int max = 1000000000000000000;
+	unsigned long int temp = 0;
 
 	if (integer == 0)
 	{
