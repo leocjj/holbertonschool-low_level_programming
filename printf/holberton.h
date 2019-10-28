@@ -9,7 +9,7 @@ int count_id(const char *count1);
 
 int size_temp(char *temp_s);
 void free_temp(char *temp_s);
-void concat_c(char *buffer, va_list args, int *chars_printed);
-int concat(char *s1, char *s2, int *chars_printed);
+void concat_c(char *buffer, int character, int *chars_printed);
+int concat(char *buffer, char *s2, int *chars_printed);
 
 #endif

@@ -31,13 +31,14 @@ int _printf(const char *format, ...)
 				break;
 			/*char *temp = checkformat(format + i, args);*/
 			if (*(format + i + count_conversion) == 'c')
-				concat_c(buffer, args, &chars_printed);
+				concat_c(buffer, va_arg(args, int), &chars_printed);
 			if (*(format + i + count_conversion) == 's')
 				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
 			i += count_conversion;
 		}
 		else
-			*(buffer + j) = *(format + i);/* Adds a char to buffer */
+			concat_c(buffer, *(format + i), &chars_printed);
+			/* *(buffer + j) = *(format + i);Adds a char to buffer */
 	}
 	chars_printed = write(1, buffer, j);
 	va_end(args);
