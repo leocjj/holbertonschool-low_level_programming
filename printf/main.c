@@ -18,10 +18,10 @@ int main(void)
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
 */
-    _printf("Character:[%c] \n", 'H');
-    printf("Character:[%c] \n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
+    _printf("Cha:[%c] \n", 'H');
+    printf("Cha:[%c] \n", 'H');
+    _printf("Str:[%s]\n", "I am a string !");
+    printf("Str:[%s]\n", "I am a string !");
 /*
     ui = (unsigned int)INT_MAX + 1024;
     addr = (void *)0x7ffe637541f0;

@@ -6,7 +6,7 @@
 /**
  * *count_id - Function that return the length of the parameter.
  * @count: length of the printf argument conversion.
- * Return: return the length of the argument conversion.
+ * Return: return the length of the argument conversion
  */
 
 int count_id(const char *count)
