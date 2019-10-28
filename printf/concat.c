@@ -49,7 +49,10 @@ void concat_c(char *buffer, int character, int *chars_printed)
 	char *temp_c = b;
 
 	/*temp_d = va_arg(args, int);	if (temp_d == 0)] ????*/
-	*(temp_c + 0) = character;
+	if (character)
+		*(temp_c + 0) = character;
+	else
+		*(temp_c + 0) = ' ';
 	*(temp_c + 1) = '\0';
 	concat(buffer, temp_c, chars_printed);
 }
