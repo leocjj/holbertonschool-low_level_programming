@@ -44,14 +44,14 @@ void free_temp(char *temp_s)
  * Return: void.
  */
 
-void concat_i(char *buffer, int integer, int *chars_printed)
+int concat_i(char *buffer, int integer, int *chars_printed)
 {
-	int max = 1000000000, temp = 0;
+	int max = 1000000000, temp = 0, result = 0;
 
 	if (integer < 0)
 	{
-		concat_c(buffer, '-', chars_printed);
-		concat_c(buffer, -(integer / max) + '0', chars_printed);
+		result += concat_c(buffer, '-', chars_printed);
+		result += concat_c(buffer, -(integer / max) + '0', chars_printed);
 		integer %= max;
 		integer *= -1;
 		max /= 10;
@@ -61,16 +61,17 @@ void concat_i(char *buffer, int integer, int *chars_printed)
 
 	if (integer == 0)
 	{
-		concat_c(buffer, '0', chars_printed);
+		result += concat_c(buffer, '0', chars_printed);
 		return;
 	}
 	while (max >= 1)
 	{
 		temp = integer / max;
-		concat_c(buffer, temp + '0', chars_printed);
+		result += concat_c(buffer, temp + '0', chars_printed);
 		integer -= max * temp;
 		max /= 10;
 	}
+	return (result);
 }
 
 
@@ -83,10 +84,11 @@ void concat_i(char *buffer, int integer, int *chars_printed)
  * Return: String already concatenate
  */
 /*void concat_c(char *buffer, va_list args, int *chars_printed)*/
-void concat_c(char *buffer, int character, int *chars_printed)
+int concat_c(char *buffer, int character, int *chars_printed)
 {
 	char b[] = {'\0', '\0'};
 	char *temp_c = b;
+	int result = 0;
 
 	/*temp_d = va_arg(args, int);	if (temp_d == 0)] ????*/
 	if (character)
@@ -94,7 +96,8 @@ void concat_c(char *buffer, int character, int *chars_printed)
 	else
 		*(temp_c + 0) = ' ';
 	*(temp_c + 1) = '\0';
-	concat(buffer, temp_c, chars_printed);
+	result += concat(buffer, temp_c, chars_printed);
+	return (result);
 }
 
 /**
