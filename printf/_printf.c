@@ -9,26 +9,18 @@
  * _printf - function that prints formated text in standard output.
  * @format: text and format to be printed.
  *
- * Return: number of characters printed..
+ * Return: number of characters printed. -1 on error
  */
 
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0, j = 0, temp_d = 0, count_conversion = 0, chars_printed = 0;
-	char *buffer = NULL, *temp_s = NULL;
+	int i = 0, j = 0, count_conversion = 0, chars_printed = 0;
+	char buffer[buffer_size];
 
 	if (format == NULL)
-		return (0);
+		return (-1);
 
-	buffer = malloc(buffer_size * sizeof(char));
-	if (buffer == NULL)
-		return (0);
-	temp_s = malloc(buffer_size * sizeof(char));
-	if (temp_s == NULL)
-		return (0);
-
-	free_temp(temp_s);
 	free_temp(buffer);
 	va_start(args, format);
 
@@ -41,23 +33,11 @@ int _printf(const char *format, ...)
 				break;
 			/*char *temp = checkformat(format + i, args);*/
 			if (*(format + i + count_conversion) == 'c')
-			{
-				free_temp(temp_s);
-				temp_d = va_arg(args, int);	/*if (temp_d == 0)] ????*/
-				*(temp_s + 0) = temp_d;
-				*(temp_s + 1) = '\0';
-				temp_s = concat(buffer, temp_s);
-				if (temp_s != NULL)
-					buffer = temp_s;
-			}
+				concat_c(buffer, args);
 			if (*(format + i + count_conversion) == 's')
 			{
-				free_temp(temp_s);
-				temp_s = va_arg(args, char *);
-				j += size_temp(temp_s) - 1;
-				temp_s = concat(buffer, temp_s);
-				if (temp_s != NULL)
-					buffer = temp_s;
+				j += size_temp(va_arg(args, char *)) - 1;
+				concat(buffer, va_arg(args, char *));
 			}
 			i += count_conversion;
 		}
@@ -66,6 +46,5 @@ int _printf(const char *format, ...)
 	}
 	chars_printed = write(1, buffer, j);
 	va_end(args);
-	free(buffer);
 	return (chars_printed);
 }
