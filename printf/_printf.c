@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, count_conversion = 0, chars_printed = 0;
 	char buffer[buffer_size];
 
-	if (format == NULL)
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
 	free_temp(buffer);
@@ -26,12 +26,12 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
-			if (*(format + i + 1) == '%')
-				concat_c(buffer, '%', &chars_printed);
+			/*if (*(format + i + 1) == '%')
+				concat_c(buffer, '%', &chars_printed);*/
 			count_conversion = count_id(format + i);
 			if (count_conversion == 0)
 			{
-				concat_c(buffer, '%', &chars_printed);
+				/*concat_c(buffer, '%', &chars_printed);*/
 				continue;
 			}
 			switch (*(format + i + count_conversion))
@@ -41,6 +41,9 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
+				break;
+			case '%':
+				concat_c(buffer, '%', &chars_printed);
 				break;
 			}
 			i += count_conversion;

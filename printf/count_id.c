@@ -12,7 +12,7 @@
 int count_id(const char *count)
 {
 	int i = 0, j = 0, size_letters = 0;
-	char letters[] = "csdefgiosukxpXGFE";
+	char letters[] = "csdefgiosukxpXGFE%";
 
 	if (count == NULL)
 		return (0);
