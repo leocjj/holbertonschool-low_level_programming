@@ -12,34 +12,38 @@
  * Return: number of character added.
  */
 
-char concat_s(char *s1, chat *s2)
+char *concat_s(char *s1, char *s2)
 {
-	int j, i, k, a;
-	char *s;
+	int j, i, k, l;
+	char *arr;
 
-	i = 0;
-	while (s1[i] != '\0')
+	if (s1 == NULL)
 	{
-		i++;
+		s1 = "";
 	}
-	j = 0;
-	while (s2[j] != '\0')
+	if (s2 == NULL)
 	{
-		j++;
+		s2 = "";
 	}
-	s = malloc(sizeof(char) * (i + j + 1));
-	if (s == NULL)
+        for (i = 0; s1[i] != '\0'; i++)
+	{
+	}
+	for (j = 0; s2[j] != '\0'; j++)
+	{
+	}
+	arr = malloc(sizeof(*arr) * (i + j + 1));
+	if (arr == NULL)
 	{
 		return ('\0');
 	}
 	for (k = 0; k < i; k++)
 	{
-		s[k] = s1[k];
+		arr[k] = s1[k];
 	}
-	for (a = 0; a < j; a++)
+	for (l = 0; l < j; l++)
 	{
-		s[i + a] = s2[a];
+		arr[i + l] = s2[l];
 	}
-	s[i + j] = '\0';
-	return (s);
+	*(arr + i + j) = '\0';
+	return (arr);
 }
