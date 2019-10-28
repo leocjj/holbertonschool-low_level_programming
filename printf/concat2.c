@@ -47,6 +47,7 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 int concat_l(char *buffer, long double integer, int *chars_printed)
 {
 	int result = 0, temp = 0;
+
 	long double max = 100000000000000000000000000000000.0;
 
 	if (integer == 0)
@@ -54,7 +55,7 @@ int concat_l(char *buffer, long double integer, int *chars_printed)
 		result += concat_c(buffer, '0', chars_printed);
 		return (result);
 	}
-	while ( (int)(integer / max) == 0)
+	while ((int)(integer / max) == 0)
 		max /= 10;
 	while (max >= 1)
 	{
