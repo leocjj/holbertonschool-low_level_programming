@@ -48,6 +48,11 @@ int concat_i(char *buffer, int integer, int *chars_printed)
 {
 	int max = 1000000000, temp = 0, result = 0;
 
+	if (integer == 0)
+	{
+		result += concat_c(buffer, '0', chars_printed);
+		return (result);
+	}
 	while (integer / max == 0)
 		max /= 10;
 	if (integer < 0)
@@ -57,12 +62,6 @@ int concat_i(char *buffer, int integer, int *chars_printed)
 		integer %= max;
 		integer *= -1;
 		max /= 10;
-	}
-
-	if (integer == 0)
-	{
-		result += concat_c(buffer, '0', chars_printed);
-		return (result);
 	}
 	while (max >= 1)
 	{
