@@ -22,7 +22,7 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 		result += concat_c(buffer, '0', chars_printed);
 		return (result);
 	}
-	while (integer / 2 > 0)
+	while (integer / 2 >= 0)
 	{
 		binary += (integer % 2) * power;
 		integer /= 2;
