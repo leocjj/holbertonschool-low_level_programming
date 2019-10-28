@@ -61,9 +61,9 @@ void concat_c(char *buffer, va_list args)
  * @s2: String to be add.
  * Return: number of character added.
  */
-int concat(char *s1, char *s2)
+int concat(char *s1, char *s2, int *chars_printed)
 {
-	int size_of_s1 = 0, size_of_s2 = 0, j = 0;
+	int size_of_s1 = 0, size_of_s2 = 0, j = 0, temp = 0;
 	char *n = "(null)";
 
 	if (s1 == NULL)
@@ -82,6 +82,13 @@ int concat(char *s1, char *s2)
 	else
 		while (s2[size_of_s2] != '\0')
 			size_of_s2++;
+
+	if (size_of_s1 + size_of_s2 + 1 > buffer_size)
+	{
+		*chars_printed += write(1, buffer, size_of_s1);
+		free_temp(s1);
+		size_of_s1 = 0;
+	}
 
 	for (j = 0; j < size_of_s2; j++)
 		s1[size_of_s1 + j] = s2[j];

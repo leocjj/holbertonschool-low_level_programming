@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include "holberton.h"
 
-#include <stdio.h>
-
 /**
  * _printf - function that prints formated text in standard output.
  * @format: text and format to be printed.
@@ -35,7 +33,7 @@ int _printf(const char *format, ...)
 			if (*(format + i + count_conversion) == 'c')
 				concat_c(buffer, args);
 			if (*(format + i + count_conversion) == 's')
-				j += concat(buffer, va_arg(args, char *)) - 1;
+				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
 			i += count_conversion;
 		}
 		else
