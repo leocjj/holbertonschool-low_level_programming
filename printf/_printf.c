@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			if (*(format + i + count_conversion) == 'c')
 				concat_c(buffer, args);
 			if (*(format + i + count_conversion) == 's')
-				j +=concat(buffer, va_arg(args, char *)) - 1;
+				j += concat(buffer, va_arg(args, char *)) - 1;
 			i += count_conversion;
 		}
 		else
