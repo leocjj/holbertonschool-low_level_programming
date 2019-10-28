@@ -26,19 +26,26 @@ int _printf(const char *format, ...)
 	{
 		if (*(format + i) == '%')
 		{
+			if (*(format + i + 1) == '%')
+				concat_c(buffer, '%', &chars_printed);
 			count_conversion = count_id(format + i);
 			if (count_conversion == 0)
-				break;
-			/*char *temp = checkformat(format + i, args);*/
-			if (*(format + i + count_conversion) == 'c')
+				concat_c(buffer, '%', &chars_printed);
+
+			switch (*(format + i + count_conversion))
+			{
+			case 'c':
 				concat_c(buffer, va_arg(args, int), &chars_printed);
-			if (*(format + i + count_conversion) == 's')
+				break;
+			case 's':
 				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
+				break;
+			}
+			/*char *temp = checkformat(format + i, args);*/
 			i += count_conversion;
 		}
 		else
 			concat_c(buffer, *(format + i), &chars_printed);
-			/* *(buffer + j) = *(format + i);Adds a char to buffer */
 	}
 	chars_printed = write(1, buffer, j);
 	va_end(args);
