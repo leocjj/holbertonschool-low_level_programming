@@ -45,7 +45,6 @@ int _printf(const char *format, ...)
 				break;
 			default:
 				concat_c(buffer, '%', &chars_printed);
-				i++;
 			}
 		}
 		else
