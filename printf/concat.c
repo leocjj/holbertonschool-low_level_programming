@@ -62,7 +62,7 @@ int concat_i(char *buffer, int integer, int *chars_printed)
 	if (integer == 0)
 	{
 		result += concat_c(buffer, '0', chars_printed);
-		return;
+		return (result);
 	}
 	while (max >= 1)
 	{
