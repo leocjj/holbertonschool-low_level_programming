@@ -30,7 +30,7 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed)
 	}
 
 	for (i = j - 1; i >= 0; i--)
-		result += concat_c(buffer, temp[i], chars_printed);
+		result += concat_c(buffer, temp[i] + '0', chars_printed);
 
 	return (result);
 }
