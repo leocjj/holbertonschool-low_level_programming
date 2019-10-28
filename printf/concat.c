@@ -52,7 +52,7 @@ void concat_c(char *buffer, va_list args, int *chars_printed)
 	temp_d = va_arg(args, int);	/*if (temp_d == 0)] ????*/
 	*(temp_c + 0) = temp_d;
 	*(temp_c + 1) = '\0';
-	concat(buffer, temp_c, int *chars_printed);
+	concat(buffer, temp_c, chars_printed);
 }
 
 /**
