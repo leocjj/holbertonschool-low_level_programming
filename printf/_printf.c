@@ -33,15 +33,19 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				concat_c(buffer, va_arg(args, int), &chars_printed);
+				i++;
 				break;
 			case 's':
 				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
+				i++;
 				break;
 			case '%':
 				concat_c(buffer, '%', &chars_printed);
+				i++;
 				break;
 			default:
 				concat_c(buffer, '%', &chars_printed);
+				i++;
 			}
 		}
 		else
