@@ -31,5 +31,5 @@ char *concat_s(char *s1, chat *s2)
 		s[i + a] = s2[a];
 
 	s[i + j] = '\0';
-	return (s);
+	return ((char *)s);
 }
