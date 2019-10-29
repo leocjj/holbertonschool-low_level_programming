@@ -54,7 +54,7 @@ char *reverse_string(char *string)
 		return ('\0');
 
 	for (result_size = 0; result_size <= string_size; result_size++)
-		result[result_size] = string[string_size - result_size];
+		result[result_size] = string[string_size - 1 - result_size];
 
 	result[result_size + 1] = '\0';
 	return ((char *)result);
