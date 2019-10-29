@@ -78,6 +78,7 @@ char *rot13(char *string)
 	result = malloc(sizeof(char) * (string_size + 1));
 	if (result == NULL)
 		return ('\0');
+	free_temp(result);
 
 	for (result_size = 0; result_size <= string_size; result_size++)
 	{
