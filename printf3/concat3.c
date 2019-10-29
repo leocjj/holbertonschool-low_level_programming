@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <limits.h>
 #include "holberton.h"
 
 /**
@@ -103,6 +104,27 @@ char *rot13(char *string)
 	}
 	result[result_size] = '\0';
 	return ((char *)result);
+}
+
+/**
+ * concat_u - print an unsigned int.
+ * @temp_s: buffer to be cleared
+ *
+ * Return: void
+ */
+
+int concat_u(char *buffer, int integer, int *chars_printed)
+{
+	if (integer >= 0)
+	{
+		result += concat_i(buffer, integer, chars_printed);
+		return (result);
+	}
+	else
+	{
+		result += concat_i(buffer, UINT_MAX - integer + 1, chars_printed);
+		return (result);
+	}
 }
 
 
