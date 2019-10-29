@@ -87,13 +87,13 @@ char *rot13(char *string)
 			ch = ch - 'a' + 13;
 			if (ch > 26)
 				ch %= 26;
-			result[result_size] = ch + 'a';
+			result[result_size] = (ch + 'a');
 		}else if (ch >= 'A' && ch <= 'Z')
 		{
 			ch = ch - 'A' + 13;
 			if (ch > 26)
 				ch %= 26;
-			result[result_size] = ch + 'A';
+			result[result_size] = (ch + 'A');
 		}else
 		{
 			result[result_size] = ch;
