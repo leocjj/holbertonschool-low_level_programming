@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, j = 0, count_conversion = 0, chars_printed = 0;
 	char buffer[buffer_size];
+	char *temp;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
@@ -50,6 +51,12 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				j += concat_b(buffer, va_arg(args, int), &chars_printed) - 1;
+				i++;
+				break;
+			case 'r':
+				temp = reverse_string(va_arg(args, char *));
+				j += concat(buffer, temp, &chars_printed) - 1;
+				free(temp);
 				i++;
 				break;
 			default:
