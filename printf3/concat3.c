@@ -117,6 +117,8 @@ char *rot13(char *string)
 
 int concat_u(char *buffer, int integer, int *chars_printed)
 {
+	int result = 0;
+
 	if (integer >= 0)
 	{
 		result += concat_i(buffer, integer, chars_printed);
