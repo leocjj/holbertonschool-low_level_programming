@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	int i = 0, j = 0, count_conversion = 0, chars_printed = 0;
 	char buffer[buffer_size];
-	char *temp;
+	char *temp, *temp2;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
@@ -60,9 +60,9 @@ int _printf(const char *format, ...)
 				i++;
 				break;
 			case 'R':
-				temp = rot13(va_arg(args, char *));
+				temp2 = rot13(va_arg(args, char *));
 				j += concat(buffer, temp, &chars_printed) - 1;
-				free(temp);
+				free(temp2);
 				i++;
 				break;
 			default:
