@@ -79,7 +79,7 @@ char *rot13(char *string)
 	if (result == NULL)
 		return ('\0');
 
-	for (result_size = 0; result_size <= string_size; result_size++)
+	for (result_size = 0; result_size < string_size; result_size++)
 	{
 		ch = string[result_size];
 		if (ch >= 'a' && ch <= 'z')
@@ -99,7 +99,7 @@ char *rot13(char *string)
 			result[result_size] = ch;
 		}
 	}
-	result[result_size + 1] = '\0';
+	result[result_size] = '\0';
 	return ((char *)result);
 }
 
