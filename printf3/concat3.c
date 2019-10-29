@@ -117,7 +117,8 @@ char *rot13(char *string)
 
 int concat_u(char *buffer, int integer, int *chars_printed)
 {
-	int result = 0, temp = 0;
+	int result = 0;
+	unsigned int temp = 0;
 
 	if (integer >= 0)
 	{
