@@ -11,7 +11,7 @@
  * Return: pointer to concatenated string.
  */
 
-char *concat_s(char *s1, chat *s2)
+char *concat_s(char *s1, char *s2)
 {
 	int j = 0, i = 0, k, a;
 	char *s;
