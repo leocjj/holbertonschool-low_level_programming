@@ -1,7 +1,7 @@
 #ifndef HOLBERTON_H_INCLUDED
 #define HOLBERTON_H_INCLUDED
 #include <stdarg.h>
-#define buffer_size 1024
+#define buffer_size 2100
 
 int _printf(const char *format, ...);
 char *checkformat(char *str, va_list args);
