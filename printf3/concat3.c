@@ -84,17 +84,19 @@ char *rot13(char *string)
 		ch = string[result_size];
 		if (ch >= 'a' && ch <= 'z')
 		{
-			ch -= 'a' + 13;
+			ch = ch - 'a' + 13;
 			if (ch > 26)
 				ch %= 26;
 			result[result_size] = ch + 'a';
-		}
-		if (ch >= 'A' && ch <= 'Z')
+		}else if (ch >= 'A' && ch <= 'Z')
 		{
-			ch -= 'A' + 13;
+			ch = ch - 'A' + 13;
 			if (ch > 26)
 				ch %= 26;
 			result[result_size] = ch + 'A';
+		}else
+		{
+			result[result_size] = ch;
 		}
 	}
 	result[result_size + 1] = '\0';
