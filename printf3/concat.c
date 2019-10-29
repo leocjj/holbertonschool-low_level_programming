@@ -132,7 +132,7 @@ int concat(char *s1, char *s2, int *chars_printed)
 	if (size_of_s1 + size_of_s2 + 1 > buffer_size)
 	{
 		temp = concat_s(s1, s2);
-		*chars_printed += write(1, temp, size_of_s1 + size_of_s2 + 1);
+		*chars_printed += write(1, temp, size_of_s1 + size_of_s2);
 		free(temp);
 		free_temp(s1);
 		size_of_s1 = 0;
