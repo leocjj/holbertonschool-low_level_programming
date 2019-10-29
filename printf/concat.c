@@ -135,8 +135,6 @@ int concat(char *s1, char *s2, int *chars_printed)
 		*chars_printed += write(1, temp, size_of_s1 + size_of_s2);
 		free(temp);
 		free_temp(s1);
-                size_of_s1 = 0;
-		size_of_s1 = 0;
 	}
 
 	for (j = 0; j < size_of_s2; j++)
