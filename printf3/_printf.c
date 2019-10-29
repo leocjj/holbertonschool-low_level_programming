@@ -59,6 +59,12 @@ int _printf(const char *format, ...)
 				free(temp);
 				i++;
 				break;
+			case 'R':
+				temp = rot13(va_arg(args, char *));
+				j += concat(buffer, temp, &chars_printed) - 1;
+				free(temp);
+				i++;
+				break;
 			default:
 				concat_c(buffer, '%', &chars_printed);
 			}
