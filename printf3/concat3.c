@@ -80,7 +80,7 @@ char *rot13(char *string)
 		return ('\0');
 	free_temp(result);
 
-	for (result_size = 0; result_size <= string_size; result_size++)
+	for (result_size = 0; result_size < string_size; result_size++)
 	{
 		ch = string[result_size];
 		if (ch >= 'a' && ch <= 'z')
