@@ -44,6 +44,7 @@ int _printf(const char *format, ...)
 				concat_c(buffer, '%', &chars_printed);
 				i++;
 				break;
+			case 'u':
 			case 'd':
 			case 'i':
 				j += concat_i(buffer, va_arg(args, int), &chars_printed) - 1;
