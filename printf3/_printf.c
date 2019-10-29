@@ -61,7 +61,7 @@ int _printf(const char *format, ...)
 				break;
 			case 'R':
 				temp2 = rot13(va_arg(args, char *));
-				j += concat(buffer, temp, &chars_printed) - 1;
+				j += concat(buffer, temp2, &chars_printed) - 1;
 				free(temp2);
 				i++;
 				break;
