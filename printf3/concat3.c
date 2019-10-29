@@ -33,3 +33,29 @@ char *concat_s(char *s1, char *s2)
 	s[i + j] = '\0';
 	return ((char *)s);
 }
+
+/**
+ * reverse_string - Function that reverse a string.
+ * @string: string to be reversed.
+ *
+ * Return: number of character added.
+ */
+
+char *reverse_string(char *string)
+{
+	int string_size = 0, result_size = 0;
+	char *result;
+
+	while (string[string_size] != '\0')
+		string_size++;
+
+	result = malloc(sizeof(char) * (string_size + 1));
+	if (result == NULL)
+		return ('\0');
+
+	for (result_size = 0; result_size <= string_size; result_size++)
+		result[result_size] = string[string_size - result_size];
+
+	result[result_size + 1] = '\0';
+	return (result);
+}
