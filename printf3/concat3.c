@@ -127,7 +127,7 @@ int concat_u(char *buffer, int integer, int *chars_printed)
 	else
 	{
 		temp = UINT_MAX - integer + 1);
-		result += concat_i(buffer, (, chars_printed);
+		result += concat_i(buffer, temp, chars_printed);
 		return (result);
 	}
 }
