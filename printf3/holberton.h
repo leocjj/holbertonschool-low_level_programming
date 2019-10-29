@@ -16,5 +16,6 @@ int concat_b(char *buffer, unsigned int integer, int *chars_printed);
 int concat_l(char *buffer, long double integer, int *chars_printed);
 char *concat_s(char *s1, char *s2);
 char *reverse_string(char *string);
+char *rot13(char *string);
 
 #endif
