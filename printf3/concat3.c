@@ -38,7 +38,7 @@ char *concat_s(char *s1, char *s2)
  * reverse_string - Function that reverse a string.
  * @string: string to be reversed.
  *
- * Return: number of character added.
+ * Return: string reversed.
  */
 
 char *reverse_string(char *string)
@@ -57,5 +57,5 @@ char *reverse_string(char *string)
 		result[result_size] = string[string_size - result_size];
 
 	result[result_size + 1] = '\0';
-	return (result);
+	return ((char *)result);
 }
