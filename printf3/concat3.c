@@ -108,9 +108,11 @@ char *rot13(char *string)
 
 /**
  * concat_u - print an unsigned int.
- * @temp_s: buffer to be cleared
+ * @buffer: string base to add the next parameter.
+ * @integer: integer to convert.
+ * @chars_printed: chars printed.
  *
- * Return: void
+ * Return: number of character added.
  */
 
 int concat_u(char *buffer, int integer, int *chars_printed)
