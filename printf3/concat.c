@@ -137,10 +137,12 @@ int concat(char *s1, char *s2, int *chars_printed)
 		free_temp(s1);
 		size_of_s1 = 0;
 	}
+	else
+	{
+		for (j = 0; j < size_of_s2; j++)
+			s1[size_of_s1 + j] = s2[j];
+		s1[size_of_s1 + size_of_s2 + 1] = '\0';
+	}
 
-	for (j = 0; j < size_of_s2; j++)
-		s1[size_of_s1 + j] = s2[j];
-
-	s1[size_of_s1 + size_of_s2 + 1] = '\0';
 	return (size_of_s2);
 }

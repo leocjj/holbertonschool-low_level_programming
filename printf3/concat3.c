@@ -4,42 +4,32 @@
 #include "holberton.h"
 
 /**
- * concat_b - Function that converts integer to binary.
- * @buffer: string base to add the next parameter.
- * @integer: integer to convert to binary.
- * @chars_printed: chars printed.
+ * concat_s - Function that concatenates two strings plus null.
+ * @s1: string to concatenate first
+ * @s2: string to concatenate second.
  *
- * Return: number of character added.
+ * Return: pointer to concatenated string.
  */
 
-char concat_s(char *s1, chat *s2)
+char *concat_s(char *s1, chat *s2)
 {
-	int j, i, k, a;
+	int j = 0, i = 0, k, a;
 	char *s;
 
-	i = 0;
 	while (s1[i] != '\0')
-	{
 		i++;
-	}
-	j = 0;
 	while (s2[j] != '\0')
-	{
 		j++;
-	}
+
 	s = malloc(sizeof(char) * (i + j + 1));
 	if (s == NULL)
-	{
 		return ('\0');
-	}
+
 	for (k = 0; k < i; k++)
-	{
 		s[k] = s1[k];
-	}
 	for (a = 0; a < j; a++)
-	{
 		s[i + a] = s2[a];
-	}
+
 	s[i + j] = '\0';
 	return (s);
 }

@@ -14,6 +14,6 @@ int concat(char *buffer, char *s2, int *chars_printed);
 int concat_i(char *buffer, int integer, int *chars_printed);
 int concat_b(char *buffer, unsigned int integer, int *chars_printed);
 int concat_l(char *buffer, long double integer, int *chars_printed);
-int concat_s(char *s2, chat *s2);
+char *concat_s(char *s2, chat *s2);
 
 #endif
