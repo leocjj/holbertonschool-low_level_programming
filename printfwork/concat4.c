@@ -53,9 +53,9 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 			k++;
 			s3[k] = 'x';
 			k++;
-			s3[k] = hex_h(char c);
-			k++
-			s3[k] = hex_l(char c);
+			s3[k] = hex_h(c);
+			k++;
+			s3[k] = hex_l(c);
 		}
 		else
 		{
