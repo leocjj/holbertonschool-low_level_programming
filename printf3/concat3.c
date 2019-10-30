@@ -39,7 +39,7 @@ char *concat_s(char *s1, char *s2)
  * reverse_string - Function that reverse a string.
  * @string: string to be reversed.
  *
- * Return: string reversed.
+ * Return: string reversed
  */
 
 char *reverse_string(char *string)
@@ -114,25 +114,7 @@ char *rot13(char *string)
  *
  * Return: number of character added.
  *
-
-int concat_u(char *buffer, int integer, int *chars_printed)
-{
-	int result = 0;
-	unsigned int temp = 0;
-
-	if (integer >= 0)
-	{
-		result += concat_i(buffer, integer, chars_printed);
-		return (result);
-	}
-	else
-	{
-		temp = UINT_MAX;
-		temp = temp - integer + 1;
-		result += concat_i(buffer, temp, chars_printed);
-		return (result);
-	}
-}*/
+ */
 
 int concat_u(char *buffer, unsigned int integer, int *chars_printed)
 {
