@@ -13,7 +13,7 @@
  */
 int concat_S(char *s1, char *s2, int *chars_printed)
 {
-	int size_of_s1 = 0, size_of_s2 = 0, j = 0, i = 0, k = 0, cs = 0;
+	int size_of_s1 = 0, size_of_s2 = 0, size_of_s3 = 0, j = 0, i = 0, k = 0, cs = 0;
 	char *n = "(null)", *temp, *s3;
 
 	if (s1 == NULL)
@@ -44,6 +44,7 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 	s3 = malloc(sizeof(char) * (size_of_s2 + (cs * 3) + 1));
 	if (s3 == NULL)
 		return ('\0');
+	size_of_s3 = size_of_s2 + (cs * 3)
 
 	for(i = 0, k = 0; s2[i] != '\0'; i++, k++)
 	{
@@ -63,22 +64,22 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 		}
 	}
 
-	if (size_of_s1 + size_of_s2 + 1 > buffer_size)
+	if (size_of_s1 + size_of_s3 + 1 > buffer_size)
 	{
 		temp = concat_s(s1, s2);
-		*chars_printed += write(1, temp, size_of_s1 + size_of_s2);
+		*chars_printed += write(1, temp, size_of_s1 + size_of_s3);
 		free(temp);
 		free_temp(s1);
 		size_of_s1 = 0;
 	}
 	else
 	{
-		for (j = 0; j < size_of_s2; j++)
+		for (j = 0; j < size_of_s3; j++)
 			s1[size_of_s1 + j] = s2[j];
-		s1[size_of_s1 + size_of_s2 + 1] = '\0';
+		s1[size_of_s1 + size_of_s3 + 1] = '\0';
 	}
 
-	return (size_of_s2);
+	return (size_of_s3);
 }
 
 /**
