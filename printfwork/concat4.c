@@ -13,7 +13,7 @@
  */
 int concat_S(char *s1, char *s2, int *chars_printed)
 {
-	int size_of_s1 = 0, size_of_s2 = 0, j = 0, i = 0, k = 0,cs = 0;
+	int size_of_s1 = 0, size_of_s2 = 0, j = 0, i = 0, k = 0, cs = 0;
 	char *n = "(null)", *temp, *s3;
 
 	if (s1 == NULL)
@@ -30,8 +30,10 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 		size_of_s2 = 6;
 	}
 	else
+	{
 		while (s2[size_of_s2] != '\0')
 			size_of_s2++;
+	}
 
 	while (i = 0; s2[i] != '\0'; i++)
 	{
@@ -51,7 +53,7 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 			k++;
 			s3[k] = 'x';
 			k++;
-			s3[k] = hex_h(char c);;
+			s3[k] = hex_h(char c);
 			k++
 			s3[k] = hex_l(char c);
 		}
@@ -91,7 +93,7 @@ int hex_h(char c)
 	if (c <= 9)
 		return (c + '0');
 	else
-		return (c + 'A')
+		return (c + 'A');
 }
 
 /**
