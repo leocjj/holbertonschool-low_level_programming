@@ -34,9 +34,9 @@ int _printf(const char *format, ...)
 			{
 			case 'c':
 				ctemp = va_arg(args, int);
-				concat_c(buffer, ctemp, &chars_printed);
 				if (ctemp == '\0')
-					exit(EXIT_FAILURE);
+					return (1)
+				concat_c(buffer, ctemp, &chars_printed);
 				i++;
 				break;
 			case 's':
