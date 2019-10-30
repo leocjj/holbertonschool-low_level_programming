@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, j = 0, count_conversion = 0, chars_printed = 0;
-	char buffer[buffer_size], ctemp;
+	char buffer[buffer_size];
 	char *temp, *temp2;
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
@@ -33,10 +33,7 @@ int _printf(const char *format, ...)
 			switch (*(format + i + 1))
 			{
 			case 'c':
-				ctemp = va_arg(args, int);
-				if (ctemp == '\0')
-					return (1);
-				concat_c(buffer, ctemp, &chars_printed);
+				concat_c(buffer, va_arg(args, int), &chars_printed);
 				i++;
 				break;
 			case 's':
