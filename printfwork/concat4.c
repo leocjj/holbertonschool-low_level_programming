@@ -34,8 +34,10 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 			size_of_s2++;
 
 	while (i = 0; s2[i] != '\0'; i++)
-		if (s2[i] >= 0 && s2[i] < 32) || (s2[i] >= 127)
+	{
+		if ((s2[i] >= 0 && s2[i] < 32) || (s2[i] >= 127))
 			cs++;
+	}
 
 	s3 = malloc(sizeof(char) * (size_of_s2 + (cs * 3) + 1));
 	if (s3 == NULL)
@@ -43,15 +45,15 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 
 	for(i = 0, k = 0; s2[i] != '\0'; i++, k++)
 	{
-		if (s2[i] >= 0 && s2[i] < 32) || (s2[i] >= 127)
+		if ((s2[i] >= 0 && s2[i] < 32) || (s2[i] >= 127))
 		{
-                        s3[k] = '\\';
-                        k++;
-                        s3[k] = 'x';
-                        k++;
-                        s3[k] = hex_h(char c);;
-                        k++
-                        s3[k] = hex_l(char c);
+			s3[k] = '\\';
+			k++;
+			s3[k] = 'x';
+			k++;
+			s3[k] = hex_h(char c);;
+			k++
+			s3[k] = hex_l(char c);
 		}
 		else
 		{
@@ -84,9 +86,9 @@ int concat_S(char *s1, char *s2, int *chars_printed)
  */
 int hex_h(char c)
 {
-	if (c % 16 >= 1)
+	if ((c % 16) >= 1)
 		c /= 16;
-	if (c < = 9)
+	if (c <= 9)
 		return (c + '0');
 	else
 		return (c + 'A')
@@ -100,8 +102,8 @@ int hex_h(char c)
 int hex_l(char c)
 {
 	c %= 16;
-	if (c < = 9)
+	if (c <= 9)
 		return (c + '0');
 	else
-		return (c + 'A')
+		return (c + 'A');
 }
