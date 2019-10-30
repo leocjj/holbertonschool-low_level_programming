@@ -35,7 +35,7 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 			size_of_s2++;
 	}
 
-	while (i = 0; s2[i] != '\0'; i++)
+	for (i = 0; s2[i] != '\0'; i++)
 	{
 		if ((s2[i] >= 0 && s2[i] < 32) || (s2[i] >= 127))
 			cs++;
@@ -53,9 +53,9 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 			k++;
 			s3[k] = 'x';
 			k++;
-			s3[k] = hex_h(c);
+			s3[k] = hex_h(s2[i]);
 			k++;
-			s3[k] = hex_l(c);
+			s3[k] = hex_l(s2[i]);
 		}
 		else
 		{
