@@ -46,7 +46,7 @@ int concat_S(char *s1, char *s2, int *chars_printed)
 		return ('\0');
 	size_of_s3 = size_of_s2 + (cs * 3);
 
-	for(i = 0, k = 0; s2[i] != '\0'; i++, k++)
+	for (i = 0, k = 0; s2[i] != '\0'; i++, k++)
 	{
 		if ((s2[i] >= 0 && s2[i] < 32) || (s2[i] >= 127))
 		{
