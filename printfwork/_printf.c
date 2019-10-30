@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 			case 'c':
 				ctemp = va_arg(args, int);
 				if (ctemp == '\0')
-					return (1)
+					return (1);
 				concat_c(buffer, ctemp, &chars_printed);
 				i++;
 				break;
