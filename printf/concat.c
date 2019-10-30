@@ -131,15 +131,18 @@ int concat(char *s1, char *s2, int *chars_printed)
 
 	if (size_of_s1 + size_of_s2 + 1 > buffer_size)
 	{
-                temp = concat_s(s1,s2);
+		temp = concat_s(s1, s2);
 		*chars_printed += write(1, temp, size_of_s1 + size_of_s2);
 		free(temp);
 		free_temp(s1);
+		size_of_s1 = 0;
+	}
+	else
+	{
+		for (j = 0; j < size_of_s2; j++)
+			s1[size_of_s1 + j] = s2[j];
+		s1[size_of_s1 + size_of_s2 + 1] = '\0';
 	}
 
-	for (j = 0; j < size_of_s2; j++)
-		s1[size_of_s1 + j] = s2[j];
-
-	s1[size_of_s1 + size_of_s2 + 1] = '\0';
 	return (size_of_s2);
 }

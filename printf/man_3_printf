@@ -1,0 +1,42 @@
+.TH man-printf 1 "28 OCT 2019" "Holberton printf proyect" "printf man page"
+.SH NAME
+.B printf - print data in to the standar output.
+.SH SYNOPSIS
+#include <sstdio.h>
+
+.BI "int printf(const char *"format ", ...);"
+
+.SH DESCRIPTION
+
+
+.BI "The funtion of printf print data to the standar output according to the " formart " that will be explained below."
+
+.BI "Printf funtion write the output under a " format " string that specifies how the variables are converted for the output"
+
+.IP "Return Value":
+In the case of successful return, the return will be the number of characters that were printed, except the NULL character at the end of the string.
+
+In the case of error will return a negative value.
+
+.IP "Format of the format string"
+.BI "Formar string is a character string, beganning and ending in ti initial shift state, if any. it is composed of zeros or more directives: normal character are copied uncheged to the standar output, and convert specifications, wich results in fetching zeor or more arguments. Ech specification start by the " % " character and with " conversion " specifier and between there may be more flags, an option minimun "field " " width ", optional " precision " and optional " length " " modifier "."
+
+.BI "All the arguments must be properly corrend with the conversion specifier. The arguments are used in the order given where the " '*' " of ech conversion specifier ask the next argument, in case there are not enough arguments an error will be given. it can also be explicitly specify wich argument is required, all of these just writing " "%m$" " insted of just " '%' " and " "*m$" " instead of just " "*" ", in where the decimal integer m indicate the position in the list of arguments wishes to be printed that will start form 1. Where"
+
+    printf("%*d", width, num);
+
+    and
+
+    printf("%2$*1$d", width, num);
+
+.BI "are equivalent. the second one allows to repeated references to the same argument. The c99 standard does not include this stule when using " '$' ", comesfrom the SINGLE UNIX Specification.  "
+
+.SH OPTIONS
+.B holberton
+does not take any options. However, you can supply studentname.
+.SH SEE ALSO
+.I peerlearning(2), projectbased(2), fullstack(2), Betty(1)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Julien Barbier, Sylvain Kalache, Sophie Barbier, Guillaume Salva, Kris Bredemeier, Julien Cyr, Alex Gautier and all the Holberton mentors
