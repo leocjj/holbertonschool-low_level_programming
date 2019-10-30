@@ -89,8 +89,6 @@ int concat_S(char *s1, char *s2, int *chars_printed)
  */
 int hex_h(char c)
 {
-	if ((c / 16) >= 1)
-		c /= 16;
 	if (c <= 9)
 		return (c + '0');
 	else
