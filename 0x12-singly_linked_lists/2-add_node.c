@@ -22,9 +22,10 @@ int slen(const char *str)
 
 /**
  * add_node - unction that adds a new node at the beginning of a list_t list.
- * @h: structure of type list_t
+ * @head: addres of a pointer to a structure of type list_t
+ * @str: string to add to node.
  *
- * Return: the number of elements.
+ * Return: pointer to structure of typ list_t.
  */
 list_t *add_node(list_t **head, const char *str)
 {
