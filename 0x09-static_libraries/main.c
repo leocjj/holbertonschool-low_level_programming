@@ -1,7 +1,13 @@
-#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-int main(void)
+int main(int argc, char **argv)
 {
-	_puts("\"At the end of the day, my goal was to be the best hacker\"\n\t- Kevin Mitnick");
-	return (0);
+	int i = 0;
+	while(i <= argc)
+	{
+		printf("%d %s\n", i, *(argv + i));
+		i++;
+	}
+        exit(EXIT_SUCCESS);
 }

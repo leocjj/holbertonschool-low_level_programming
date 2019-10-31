@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <limits.h>
 
-int main(void)
+int main2(void)
 {
 // NULL
 printf(NULL);

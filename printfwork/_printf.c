@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			count_conversion = count_id(format + i);
 			if (count_conversion == 0)
 				continue;
-			switch (*(format + i + 1))
+			switch (*(format + i + count_conversion))
 			{
 			case 'c':
 				concat_c(buffer, va_arg(args, int), &chars_printed);
@@ -38,6 +38,10 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				j += concat(buffer, va_arg(args, char *), &chars_printed) - 1;
+				i++;
+				break;
+			case 'S':
+				j += concat_S(buffer, va_arg(args, char *), &chars_printed) - 1;
 				i++;
 				break;
 			case '%':

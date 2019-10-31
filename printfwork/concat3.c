@@ -105,6 +105,37 @@ char *rot13(char *string)
 	return ((char *)result);
 }
 
+/**
+ * concat_u - print an unsigned int.
+ * @buffer: string base to add the next parameter.
+ * @integer: integer to convert.
+ * @chars_printed: chars printed.
+ *
+ * Return: number of character added.
+ *
+ */
+
+int concat_u(char *buffer, unsigned int integer, int *chars_printed)
+{
+	int max = 1000000000, temp = 0, result = 0;
+
+	if (integer == 0)
+	{
+		result += concat_c(buffer, '0', chars_printed);
+		return (result);
+	}
+	while (integer / max == 0)
+		max /= 10;
+	while (max >= 1)
+	{
+		temp = integer / max;
+		result += concat_c(buffer, temp + '0', chars_printed);
+		integer -= max * temp;
+		max /= 10;
+	}
+	return (result);
+}
+
 
 
 
