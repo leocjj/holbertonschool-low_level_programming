@@ -2,14 +2,14 @@
 #include <lists.h>
 
 /**
- * StartupFunction - Apply the constructor attribute to StartupFunction() so that it is executed before main()
+ * StartupFunction - Apply constructor attribute. Is executed before main()
  *
  * Return: void
  */
 void StartupFunction(void) __attribute__ ((constructor));
 
 /**
- * StartupFunction - Apply the destructor attribute to CleanupFunction() so that it is executed after main()
+ * StartupFunction - Apply the destructor attribute. Is executed after main()
  *
  * Return: void
  */
@@ -22,11 +22,11 @@ void CleanupFunction(void) __attribute__ ((destructor));
  */
 void StartupFunction(void)
 {
-    printf ("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
+    printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
 }
 
 /**
- * CleanupFunctiom - implementation of CleanupFunctiom
+ * CleanupFunction - implementation of CleanupFunctiom
  *
  * Return: void
  */
