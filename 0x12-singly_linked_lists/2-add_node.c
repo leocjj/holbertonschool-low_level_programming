@@ -35,17 +35,17 @@ list_t *add_node(list_t **head, const char *str)
 
 	p = malloc(sizeof(list_t));
 	if (p == NULL)
-	{
-		printf("Error\n");
 		return (NULL);
-	}
 
 	(*p).str = strdup(str);
+	if ((*p).str == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
 	(*p).len = slen(str);
 	(*p).next = *head;
 	*head = p;
 
-	free(p->str);
-	free(p);
-	return (*head);
+	return (p);
 }
