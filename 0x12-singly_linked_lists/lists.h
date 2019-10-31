@@ -23,5 +23,19 @@ size_t list_len(const list_t *h);
 list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
 void free_list(list_t *head);
+/**
+ * StartupFunction - Apply constructor attribute. Is executed before main()
+ *
+ * Return: void
+ */
+void StartupFunction(void) __attribute__ ((constructor));
+
+/**
+ * StartupFunction - Apply the destructor attribute. Is executed after main()
+ *
+ * Return: void
+ */
+void CleanupFunction(void) __attribute__ ((destructor));
+
 
 #endif
