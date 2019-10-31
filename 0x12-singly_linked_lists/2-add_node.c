@@ -15,7 +15,7 @@ int slen(const char *str)
 
 	if (str == NULL)
 		return (0);
-	while (*str != '\0')
+	while (*(str + s) != '\0')
 		s++;
 	return (s);
 }
