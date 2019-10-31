@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
@@ -12,10 +13,11 @@ int slen(const char *str)
 {
 	int s = 0;
 
-	if (str = NULL)
+	if (str == NULL)
 		return (0);
 	while (*str != '\0')
 		s++;
+	return (s);
 }
 
 /**
@@ -26,7 +28,6 @@ int slen(const char *str)
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	int s = 0;
 	list_t *p;
 
 	p = malloc(sizeof(list_t));
@@ -36,9 +37,9 @@ list_t *add_node(list_t **head, const char *str)
 		return (NULL);
 	}
 
-	*(p).str = strdup(str);
-	*(p).len = lsen(str);
-	*(p).next = *head;
+	(*p).str = strdup(str);
+	(*p).len = slen(str);
+	(*p).next = *head;
 	*head = p;
 
 	free(p->str);
