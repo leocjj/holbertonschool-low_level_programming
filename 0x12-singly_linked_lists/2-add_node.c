@@ -39,10 +39,10 @@ list_t *add_node(list_t **head, const char *str)
 
 	(*p).str = strdup(str);
 	(*p).len = slen(str);
-	(*p).next = *head;
+	(*p).next = head;
 	*head = p;
 
 	free(p->str);
 	free(p);
-	return (*head);
+	return (head);
 }
