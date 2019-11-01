@@ -21,32 +21,51 @@ int slen(const char *str)
 }
 
 /**
- * add_node - unction that adds a new node at the beginning of a list_t list.
+ * add_node_end - function that adds a new node at the end of a list_t list.
  * @head: addres of a pointer to a structure of type list_t
  * @str: string to add to node.
  *
  * Return: pointer to structure of typ list_t.
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
-	list_t *p;
+	list_t *p, *n;
 
 	if (head == NULL || str == NULL)
 		return (NULL);
 
-	p = malloc(sizeof(list_t));
-	if (p == NULL)
-		return (NULL);
 
-	(*p).str = strdup(str);
-	if ((*p).str == NULL)
+	if (*head != NULL)
 	{
-		free(p);
+		p = *head;
+		/**
+		 *To search the final node
+		 */
+		while ((*p).next != NULL)
+			p = (*p).next;
+	}
+
+	/**
+	 * creation of the new nodw.
+	 */
+	n = malloc(sizeof(list_t));
+	if (n == NULL)
+		return (NULL);
+	(*n).str = strdup(str);
+	if ((*n).str == NULL)
+	{
+		free(n);
 		return (NULL);
 	}
 	(*p).len = slen(str);
-	(*p).next = *head;
-	*head = p;
+	(*p).next = NULL;
+
+	/**
+	 * Asigment of the new node to the last one.
+	 */
+	
+
+	(*p).next = n;
 
 	return (p);
 }
