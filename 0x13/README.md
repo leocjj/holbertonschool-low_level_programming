@@ -1,6 +1,6 @@
-# Project 0x12.
+# Project 0x13.
 
-C - Singly linked lists
+C - More singly linked lists
 
 ## Learning Objectives
 
@@ -54,4 +54,4 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## Author
 
 * **Leonardo Calderon J.** - *Initial work* - [LeoCJJ](https://github.com/leocjj)
-10/31/2019
+11/03/2019
