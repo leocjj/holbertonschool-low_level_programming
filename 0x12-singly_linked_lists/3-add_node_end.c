@@ -34,19 +34,8 @@ list_t *add_node_end(list_t **head, const char *str)
 	if (head == NULL || str == NULL)
 		return (NULL);
 
-
-	if (*head != NULL)
-	{
-		p = *head;
-		/**
-		 *To search the final node
-		 */
-		while ((*p).next != NULL)
-			p = (*p).next;
-	}
-
 	/**
-	 * creation of the new nodw.
+	 * creation of the new node.
 	 */
 	n = malloc(sizeof(list_t));
 	if (n == NULL)
@@ -57,15 +46,26 @@ list_t *add_node_end(list_t **head, const char *str)
 		free(n);
 		return (NULL);
 	}
-	(*p).len = slen(str);
-	(*p).next = NULL;
+	(*n).len = slen(str);
+	(*n).next = NULL;
 
+	if (*head == NULL)
+	{
+		*head = n;
+		return (n);
+	}
+	else
+	{
+		p = *head;
+		/**
+		 *To search the final node
+		 */
+		while ((*p).next != NULL)
+			p = (*p).next;
+	}
 	/**
 	 * Asigment of the new node to the last one.
 	 */
-	
-
 	(*p).next = n;
-
 	return (p);
 }
