@@ -40,7 +40,7 @@ list_t *add_node(list_t **head, const char *str)
 	(*p).str = strdup(str);
 	if ((*p).str == NULL)
 	{
-		free(new);
+		free(p);
 		return (NULL);
 	}
 	(*p).len = slen(str);
