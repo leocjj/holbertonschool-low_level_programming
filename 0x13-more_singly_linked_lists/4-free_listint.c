@@ -2,7 +2,7 @@
 #include "lists.h"
 /**
  * free_listint - function that free a list of type listint_t.
- * @head: address of a pointer to a structure of type listint_t
+ * @head: pointer to a structure of type listint_t
  *
  * Return: void.
  */
