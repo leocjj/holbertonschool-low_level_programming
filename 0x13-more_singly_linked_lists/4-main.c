@@ -10,16 +10,19 @@
  */
 int main(void)
 {
-    list_t *head;
+    listint_t *head;
 
     head = NULL;
-    add_node_end(&head, "Jennie");
-    add_node_end(&head, "&");
-    add_node_end(&head, "Jay");
-    add_node_end(&head, "love");
-    add_node_end(&head, "asm");
-    print_list(head);
-    free_list(head);
+    add_nodeint_end(&head, 0);
+    add_nodeint_end(&head, 1);
+    add_nodeint_end(&head, 2);
+    add_nodeint_end(&head, 3);
+    add_nodeint_end(&head, 4);
+    add_nodeint_end(&head, 98);
+    add_nodeint_end(&head, 402);
+    add_nodeint_end(&head, 1024);
+    print_listint(head);
+    free_listint(head);
     head = NULL;
     return (0);
 }
