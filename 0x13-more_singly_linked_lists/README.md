@@ -1,13 +1,13 @@
-# Project 0x12.
+# Project 0x13.
 
-C - Singly linked lists
+C - More singly linked lists
 
 ## Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google.
 
-* When and why using linked lists vs arrays
-* How to build and use linked lists
+* How to use linked lists
+* Start to look for the right source of information without too much help
 
 
 ### Requirements
@@ -30,15 +30,41 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 
 ```
 
+### More info: please use this data structure for this project:
+
+/**
+ * struct listint_s - singly linked list
+ * @n: integer
+ * @next: points to the next node
+ *
+ * Description: singly linked list node structure
+ * for Holberton project
+ */
+typedef struct listint_s
+{
+    int n;
+    struct listint_s *next;
+} listint_t;
+
+
 ### Tasks
 
-* 0. function that prints all the elements of a list_t list.
-* 1. function that returns the number of elements in a linked list_t list.
-* 2. function that adds a new node at the beginning of a list_t list.
-* 3. function that adds a new node at the end of a list_t list.
-* 4. function that frees a list_t list.
-* 5. function that prints You're beat! and yet, you must allow,\nI bore my house upon my back!\n before the main function is executed.
-* 6. Write a 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
+* 0. function that prints all the elements of a listint_t list.
+* 1. function that returns the number of elements in a linked listint_t list.
+* 2. function that adds a new node at the beginning of a listint_t list.
+* 3. function that adds a new node at the end of a listint_t list.
+* 4. function that frees a listint_t list.
+* 5. function that frees a listint_t list.
+* 6. function that deletes the head node of a listint_t linked list, and returns the head node’s data (n).
+* 7. function that returns the nth node of a listint_t linked list.
+* 8. function that returns the sum of all the data (n) of a listint_t linked list.
+* 9. function that inserts a new node at a given position.
+*10. function that deletes the node at index index of a listint_t linked list.
+*11. function that reverses a listint_t linked list.
+*12. function that prints a listint_t linked list.
+*13. function that frees a listint_t list.
+*14. function that finds the loop in a linked list.
+
 
 ### Coding style tests
 
@@ -54,4 +80,4 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 ## Author
 
 * **Leonardo Calderon J.** - *Initial work* - [LeoCJJ](https://github.com/leocjj)
-10/31/2019
+11/04/2019
