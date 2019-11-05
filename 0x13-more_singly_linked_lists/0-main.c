@@ -14,8 +14,13 @@ int main(void)
     listint_t *new;
     listint_t hello = {8, NULL};
     size_t n;
+    n = print_listint(NULL);
+    printf("-> %lu elements\n", n);
 
     head = &hello;
+    n = print_listint(head);
+    printf("-> %lu elements\n", n);
+
     new = malloc(sizeof(listint_t));
     if (new == NULL)
     {
