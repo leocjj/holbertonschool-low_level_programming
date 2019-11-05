@@ -3,7 +3,6 @@
 /**
  * sum_listint - sum of all the data (n) of a listint_t linked list
  * @head: pointer to a structure of type listint_t
- * @index: index of the node, starting at 0
  *
  * Return: sum of all the data (n) of a listint_t linked list.
  */
