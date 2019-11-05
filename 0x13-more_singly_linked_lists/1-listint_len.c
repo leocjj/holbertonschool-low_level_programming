@@ -10,7 +10,7 @@
 size_t listint_len(const listint_t *h)
 {
 	int count = 0;
-	listint_t *temp = h;
+	const listint_t *temp = h;
 
 	while (temp != NULL)
 	{
