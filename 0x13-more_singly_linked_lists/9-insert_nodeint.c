@@ -42,7 +42,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (head_copy == NULL)
 		return (NULL);
 
-	temp = get_nodeint_at_index2(head_copy, (idx - 1));
+	if (idx == 0)
+		temp = head_copy;
+	else
+		temp = get_nodeint_at_index2(head_copy, (idx - 1));
 	if (temp == NULL)
 		return (NULL);
 
