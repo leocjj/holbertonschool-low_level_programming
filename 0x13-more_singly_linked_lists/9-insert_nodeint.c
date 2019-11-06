@@ -1,31 +1,6 @@
 #include <stdlib.h>
 #include "lists.h"
 /**
- * get_nodeint_at_index2 - returns the nth node of a listint_t linked list.
- * @head: pointer to a structure of type listint_t
- * @index: index of the node, starting at 0
- *
- * Return: the nth node of a listint_t linked list.
- */
-listint_t *get_nodeint_at_index2(listint_t *head, unsigned int index)
-{
-	unsigned int counter = 0;
-	listint_t *head_copy = head;
-
-	if (head_copy == NULL)
-		return (NULL);
-
-	while (head_copy != NULL)
-	{
-		if (counter == index)
-			return (head_copy);
-		head_copy = head_copy->next;
-		counter++;
-	}
-	return (NULL);
-}
-
-/**
  * insert_nodeint_at_index - inserts a new node at a given position.
  * @head: address of a pointer to a structure of type listint_t
  * @idx: index of the list where the new node should be added. Index starts: 0
@@ -37,35 +12,36 @@ listint_t *get_nodeint_at_index2(listint_t *head, unsigned int index)
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *head_copy = *head, *temp, *new;
+	unsigned int i = 1;
+	listint_t *temp_node = *head, *new_node;
 
-	if (head_copy == NULL || head == NULL)
+	if (temp_node == NULL || head == NULL)
 		return (NULL);
 
-	new = malloc(sizeof(listint_t));
-	if (new == NULL)
+	new_node = malloc(sizeof(listint_t));
+	if (new_node == NULL)
 		return (NULL);
 
-	new->n = n;
+	new_node->n = n;
+
+	while (i < idx)
+	{
+		if (temp_node != NULL)
+			temp_node = temp_node->next;
+		else
+			return (NULL);
+		i++;
+	}
 
 	if (idx == 0)
 	{
-		new->next = *head;
-		*head = new;
+		new_node->next = *head;
+		*head = new_node;
 	}
 	else
 	{
-		temp = get_nodeint_at_index2(head_copy, (idx - 1));
-		if (temp == NULL)
-		{
-			free(new);
-			return (NULL);
-		}
-		else
-		{
-			new->next = temp->next;
-			temp->next = new;
-		}
+		new_node->next = temp_node->next;
+		temp_node->next = new_node;
 	}
-	return (new);
+	return (new_node);
 }
