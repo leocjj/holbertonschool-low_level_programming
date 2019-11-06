@@ -1,4 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
+
+/**
+ * find_listint_loop2 - function that finds the loop in a linked list.
+ * @head: pointer to a structure of type listint_t
+ *
+ * Return: pointer to the node where the loop starts, NULL if there is no loop
+ */
+listint_t *find_listint_loop2(listint_t *head)
+{
+	listint_t *temp = malloc(sizeof(listint_t));
+	while (head != NULL) {
+		if (head->next == NULL) 	// This condition is for the case when there is no loop
+			return (NULL);
+		if (head->next == temp) 	// Check if next is already pointing to temp
+			return (head);
+		listint_t *nex = head->next; // Store the pointer to the next node in order to get to it in the next step
+		head->next = temp; 		// Make next point to temp
+		head = nex; 			// Get to the next node in the list
+	}
+	return (NULL);
+}
 
 /**
  * countNodes - count of nodes present in loop.
@@ -6,10 +29,10 @@
  *
  * Return: count of nodes present in loop.
  */
-int countNodes(struct Node *n)
+int countNodes(listint_t *n)
 {
    int res = 1;
-   struct Node *temp = n;
+   listint_t *temp = n;
    while (temp->next != n)
    {
       res++;
@@ -23,9 +46,9 @@ int countNodes(struct Node *n)
  *
  * Return: the number of nodes in loop, 0 if no loop.
  */
-size_t countNodesinLoop(struct Node *list)
+size_t countNodesinLoop(listint_t *list)
 {
-    struct Node  *slow_p = list, *fast_p = list;
+    listint_t *slow_p = list, *fast_p = list;
 
     while (slow_p && fast_p && fast_p->next)
     {
@@ -47,23 +70,40 @@ size_t countNodesinLoop(struct Node *list)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t cont = 0, nodesInLoop = 0;
+	size_t cont = 0, nodesInLoop = 0, i = 0;
+	listint_t *loop_start, *temp = head;
 
 	if (head == NULL)
 		exit(98);
 
-	nodesInLoop = countNodesinLoop(head);
+	nodesInLoop = countNodesinLoop(temp);
+	loop_start = find_listint_loop2(temp);
 
 	if (nodesInLoop == 0)
 	{
-		while (head != NULL)
+		while (temp != NULL)
 		{
-			printf("%d\n", head->n);
-			hea = head->next;
+			printf("[%p] %d\n", (void *)temp, temp->n);
+			temp = temp->next;
 			cont++;
 		}
 		return (cont);
 	}
-
-
+	else
+	{
+		while (temp != loop_start)
+		{
+			printf("[%p] %d\n", (void *)temp, temp->n);
+			temp = temp->next;
+			cont++;
+		}
+		while (i < nodesInLoop)
+		{
+			printf("[%p] %d\n", (void *)temp, temp->n);
+			temp = temp->next;
+			cont++;
+			i++;
+		}
+	}
+	return (cont);
 }
