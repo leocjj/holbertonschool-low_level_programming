@@ -12,6 +12,9 @@ void reverse_listint2(listint_t *curr, listint_t *prev, listint_t **head)
 {
 	listint_t *next = curr->next;
 
+	if (head == NULL)
+		return;
+
 	if (!curr->next)
 	{
 		*head = curr;
