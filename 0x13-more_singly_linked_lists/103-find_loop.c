@@ -1,39 +1,23 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 /**
- * reverse_listint2 - function that reverses a listint_t linked list.
- * @head: address of a pointer to a structure of type listint_t
- * @prev: previus node.
- * @curr: current node.
+ * find_listint_loop - function that finds the loop in a linked list.
+ * @head: pointer to a structure of type listint_t
  *
- * Return: a pointer to the first node of the reversed list.
+ * Return: pointer to the node where the loop starts, NULL if there is no loop
  */
-void reverse_listint2(listint_t *curr, listint_t *prev, listint_t **head)
+listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *next = curr->next;
-
-	if (!curr->next)
-	{
-		*head = curr;
-		curr->next = prev;
-		return;
+	listint_t *temp = malloc(sizeof(listint_t));
+	while (head != NULL) {
+		if (head->next == NULL) 	// This condition is for the case when there is no loop
+			return (NULL);
+		if (head->next == temp) 	// Check if next is already pointing to temp
+			return (head);
+		listint_t *nex = head->next; // Store the pointer to the next node in order to get to it in the next step
+		head->next = temp; 		// Make next point to temp
+		head = nex; 			// Get to the next node in the list
 	}
-
-	curr->next = prev;
-	reverse_listint2(next, curr, head);
-}
-
-/**
- * reverse_listint - function that reverses a listint_t linked list.
- * @head: address of a pointer to a structure of type listint_t
- *
- * Return: a pointer to the first node of the reversed list.
- */
-
-listint_t *reverse_listint(listint_t **head)
-{
-	if (head == NULL)
-		return (NULL);
-	reverse_listint2(*head, NULL, head);
-	return (*head);
+	return (NULL);
 }
