@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 #include "holberton.h"
 
 /**
@@ -17,6 +18,18 @@ int main(void)
     n = flip_bits(1024, 3);
     printf("%u\n", n);
     n = flip_bits(1024, 1025);
+    printf("%u\n", n);
+    n = flip_bits(0, 0);
+    printf("%u\n", n);
+    n = flip_bits(UINT_MAX, 0);
+    printf("%u\n", n);
+    n = flip_bits(UINT_MAX, UINT_MAX);
+    printf("%u\n", n);
+    n = flip_bits(1, 0);
+    printf("%u\n", n);
+    n = flip_bits(0, 1);
+    printf("%u\n", n);
+    n = flip_bits(UINT_MAX, UINT_MAX / 2);
     printf("%u\n", n);
     return (0);
 }

@@ -11,9 +11,12 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int result = 0, counter = 0;
+	unsigned long int result = 0;
+	unsigned int counter = 0;
 	unsigned long int bit = 1;
 
+	if (!n && !m)
+		return (0);
 	/**
 	 * Result will have the bits difference between n and m.
 	 */
