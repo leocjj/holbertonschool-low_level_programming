@@ -10,11 +10,11 @@
  */
 void print_binary(unsigned long int n)
 {
-        unsigned long int bit = 1, result = 0;
-        int bits_of_n = sizeof(n) * 8;
-        bit = bit << (bits_of_n - 1);
+	unsigned long int bit = 1, result = 0;
+	int bits_of_n = sizeof(n) * 8;
+	bit = bit << (bits_of_n - 1);
 
-        if (n == 0)
+	if (n == 0)
 	{
 		_putchar('0');
 		return;
@@ -25,7 +25,7 @@ void print_binary(unsigned long int n)
 		bit = bit >> 1;
 	}
 
-        while (bit)
+	while (bit)
 	{
 		result = n & bit;
 		if (result)
