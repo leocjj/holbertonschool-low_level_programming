@@ -17,13 +17,13 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	/**
 	 * Result will have the bits difference between n and m.
 	 */
-        result = n ^ m;
+	result = n ^ m;
 
-        /**
+	/**
 	 * Read bit by bit and add counter if result has a '1'.
 	 * Move result to the rigth.
 	 */
-        while (result)
+	while (result)
 	{
 		if (result & bit)
 			counter++;
