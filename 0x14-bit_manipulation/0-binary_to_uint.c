@@ -24,9 +24,6 @@ unsigned int binary_to_uint(const char *b)
 		i++;
 	}
 
-	if (i > 32)
-		return (0);
-
 	/**
 	 * 2) read bits from right to left and multiply it by power of 2.
 	 */
