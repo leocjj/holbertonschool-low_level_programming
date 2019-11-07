@@ -13,16 +13,22 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	int result = 0, counter = 0;
 	unsigned long int bit = 1;
-	//unsigned int bits_of_n = sizeof(n) * 8;
 
-	//bit = bit << bits_of_n - 1;
+	/**
+	 * Result will have the bits difference between n and m.
+	 */
         result = n ^ m;
 
+        /**
+	 * Read bit by bit and add counter if result has a '1'.
+	 * Move result to the rigth.
+	 */
         while(result)
 	{
 		if (result & bit)
 			counter++;
 		result = result >> 1;
 	}
+
 	return (counter);
 }
