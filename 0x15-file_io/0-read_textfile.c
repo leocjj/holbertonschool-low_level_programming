@@ -42,15 +42,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	read(fd, buffer, letters);
 
 	letters_printed = write(STDOUT_FILENO, buffer, strlen(buffer));
-	if (letters_printed < letters)
-	{
-		close(fd);
-		free(buffer);
-		return (0);
-	}
 
 	close(fd);
 	free(buffer);
+	if (letters_printed < letters)
+		return (0);
 
 	return (letters);
 }
