@@ -22,10 +22,10 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd = -1;
-	size_t letters_printed = 0;
+	size_t letters_readed = 0, letters_printed = 0;
 	char *buffer;
 
-	if (filename == NULL)
+	if (!filename)
 		return (0);
 
 	fd = open(filename, O_RDONLY);
@@ -39,14 +39,21 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	read(fd, buffer, letters);
+	letters_readed = read(fd, buffer, letters);
+	if (letters_readed < 0)
+	{
+		free(buffer);
+		close(fd);
+		return (0);
+	}
+	*(buffer + letters_readed) = '\0'
 
-	letters_printed = write(STDOUT_FILENO, buffer, strlen(buffer));
+	letters_printed = write(STDOUT_FILENO, buffer, letters_readed);
 
 	close(fd);
 	free(buffer);
-	if (letters_printed < letters)
+	if (letters_printed != letters_readed)
 		return (0);
 
-	return (letters);
+	return (letters_printed);
 }
