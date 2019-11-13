@@ -7,7 +7,30 @@
 #include <fcntl.h>
 #include <stddef.h>
 #include "holberton.h"
+/**
+ * open_fds - open file descriptors.
+ * @fd_from: pointer to file descriptor for file opened.
+ * @fd_to: pointer to file descriptor for the other file.
+ *
+ * Return: void.
+ */
+void open_fds(int *fd_from, char *file_from, int *fd_to, char *file_to)
+{
+	*fd_from = open(file_from, O_RDONLY);
+	if (*fd_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		exit(98);
+	}
 
+	*fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	if (*fd_to == -1)
+	{
+		close(*fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		exit(99);
+	}
+}
 /**
  * close_fds - close file descriptors.
  * @fd_from: file descriptor for file opened.
@@ -19,13 +42,12 @@ void close_fds(int fd_from, int fd_to)
 {
 	if (close(fd_from) == -1)
 	{
-		close(fd_to);
-		dprintf(2, "Error: Can't close fd %d\n", fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 	if (close(fd_to) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
 	}
 }
@@ -47,45 +69,29 @@ int main(int ac, char **av)
 
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
-	if (!file_from)
-	{
-		dprintf(2, "Can't read from file %s\n", file_from);
-		exit(98);
-	}
-
-	fd_from = open(file_from, O_RDONLY);
-	if (fd_from == -1)
-	{
-		dprintf(2, "Can't read from file %s\n", file_from);
-		exit(98);
-	}
-
-	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	if (fd_to == -1)
-	{
-		close(fd_from);
-		dprintf(2, "Can't write to %s\n", file_to);
-		exit(99);
-	}
+	open_fds(&fd_from, file_from, &fd_to, file_to);
 
 	letters_readed = read(fd_from, buffer, 1024);
+	while (letters_readed > 0)
+	{
+		letters_printed = write(fd_to, buffer, letters_readed);
+		if (letters_printed != letters_readed)
+		{
+			close_fds(fd_from, fd_to);
+			dprintf(STDERR_FILENO, "Can't write to %s\n", file_to);
+			exit(99);
+		}
+		letters_readed = read(fd_from, buffer, 1024);
+	}
 	if (letters_readed < 0)
 	{
 		close_fds(fd_from, fd_to);
-		dprintf(2, "Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Can't read from file %s\n", file_from);
 		exit(98);
-	}
-
-	letters_printed = write(fd_to, buffer, letters_readed);
-	if (letters_printed != letters_readed)
-	{
-		close_fds(fd_from, fd_to);
-		dprintf(2, "Can't write to %s\n", file_to);
-		exit(99);
 	}
 
 	close_fds(fd_from, fd_to);
