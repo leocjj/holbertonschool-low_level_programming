@@ -41,6 +41,7 @@ void open_fds(int *fd_from, char *file_from, int *fd_to, char *file_to)
 void close_fds(int fd)
 {
 	int status = close(fd);
+
 	if (status == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
