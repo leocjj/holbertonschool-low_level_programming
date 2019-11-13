@@ -77,21 +77,18 @@ int main(int ac, char **av)
 
 	open_fds(&fd_from, file_from, &fd_to, file_to);
 
-	letters_readed = read(fd_from, buffer, 1024);
-	while (letters_readed > 0)
+
+	while ((letters_readed = read(fd_from, buffer, 1024)) > 0)
 	{
-		letters_printed = write(fd_to, buffer, letters_readed);
-		if (letters_printed != letters_readed)
+		if (write(fd_to, buffer, letters_readed) != letters_readed)
 		{
-			close_fds(fd_from, fd_to);
 			dprintf(STDERR_FILENO, "Can't write to %s\n", file_to);
 			exit(99);
 		}
-		letters_readed = read(fd_from, buffer, 1024);
 	}
-	if (letters_readed < 0)
+
+	if (size == -1)
 	{
-		close_fds(fd_from, fd_to);
 		dprintf(STDERR_FILENO, "Can't read from file %s\n", file_from);
 		exit(98);
 	}
