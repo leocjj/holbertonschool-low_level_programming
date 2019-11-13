@@ -64,10 +64,13 @@ void close_fds(int fd_from, int fd_to)
 
 int main(int ac, char **av)
 {
-	int fd_from = -1, fd_to = -1;
+	int fd_from = -1, fd_to = -1, i = 0;
 	ssize_t letters_readed = 0, letters_printed = 0;
 	char *file_from = *(av + 1), *file_to = *(av + 2);
 	char buffer[1024];
+
+	while (i++ < 1024)
+		buffer[i] = '\0';
 
 	if (ac != 3)
 	{
