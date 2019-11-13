@@ -10,7 +10,9 @@
 /**
  * open_fds - open file descriptors.
  * @fd_from: pointer to file descriptor for file opened.
+ * @file_from: pointer to file name.
  * @fd_to: pointer to file descriptor for the other file.
+ * @file_to: pointer to file name.
  *
  * Return: void.
  */
@@ -23,7 +25,7 @@ void open_fds(int *fd_from, char *file_from, int *fd_to, char *file_to)
 		exit(98);
 	}
 
-	*fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
+	*fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (*fd_to == -1)
 	{
 		close(*fd_from);
