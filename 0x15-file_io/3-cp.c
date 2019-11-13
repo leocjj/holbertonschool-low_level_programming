@@ -17,13 +17,13 @@
  */
 void close_fds(int fd_from, int fd_to)
 {
-	if(close(fd_from) == -1)
+	if (close(fd_from) == -1)
 	{
 		close(fd_to);
 		dprintf(2, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
-	if(close(fd_to) == -1)
+	if (close(fd_to) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd_to);
 		exit(100);
@@ -64,9 +64,6 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	/** Permissions of the created file: rw-rw-r--. If the file already
-	 *  exists, do not change the permissions.
-	 */
 	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
 	if (fd_to == -1)
 	{
@@ -75,8 +72,6 @@ int main(int ac, char **av)
 		exit(99);
 	}
 
-	/** Permissions of the created file: rw-rw-r--. If the file already
-	 */
 	letters_readed = read(fd_from, buffer, 1024);
 	if (letters_readed < 0)
 	{
