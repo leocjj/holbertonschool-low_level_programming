@@ -21,13 +21,10 @@
 
 int main(int ac, char **av)
 {
-	int fd = -1, i = 0;
+	int fd = -1;
 	ssize_t letters_printed = 0, letters_readed = 0;
 	char *buffer;
 	char *filename = *(av + 1);
-
-	while (i++ < 1024)
-		buffer[i] = '\0';
 
 	if (ac != 2)
 	{
