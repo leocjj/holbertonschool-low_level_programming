@@ -53,14 +53,14 @@ int main(int ac, char **av)
 
 	if (!file_from)
 	{
-		dprintf(2, "Can't read from file %s\n", *file_from);
+		dprintf(2, "Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
 	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(2, "Can't read from file %s\n", *file_from);
+		dprintf(2, "Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
@@ -71,7 +71,7 @@ int main(int ac, char **av)
 	if (fd_to == -1)
 	{
 		close(fd_from);
-		dprintf(2, "Can't write to %s\n", *file_to);
+		dprintf(2, "Can't write to %s\n", file_to);
 		exit(99);
 	}
 
@@ -81,7 +81,7 @@ int main(int ac, char **av)
 	if (letters_readed < 0)
 	{
 		close_fds(fd_from, fd_to);
-		dprintf(2, "Can't read from file %s\n", *file_from);
+		dprintf(2, "Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
@@ -89,7 +89,7 @@ int main(int ac, char **av)
 	if (letters_printed != letters_readed)
 	{
 		close_fds(fd_from, fd_to);
-		dprintf(2, "Can't write to %s\n", *file_to);
+		dprintf(2, "Can't write to %s\n", file_to);
 		exit(99);
 	}
 
