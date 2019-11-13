@@ -65,7 +65,7 @@ void close_fds(int fd_from, int fd_to)
 int main(int ac, char **av)
 {
 	int fd_from = -1, fd_to = -1, i = 0;
-	ssize_t letters_readed = 0, letters_printed = 0;
+	ssize_t letters_readed = 0;
 	char *file_from = *(av + 1), *file_to = *(av + 2);
 	char buffer[1024];
 
@@ -90,7 +90,7 @@ int main(int ac, char **av)
 		}
 	}
 
-	if (size == -1)
+	if (letters_readed == -1)
 	{
 		dprintf(STDERR_FILENO, "Can't read from file %s\n", file_from);
 		exit(98);
