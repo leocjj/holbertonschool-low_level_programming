@@ -38,14 +38,16 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);
 
-	if (text_size > 0)
-		letters_printed = write(fd, text_content, text_size);
-	else
-		letters_printed = write(fd, c, 1);
+	if (text_size == 0)
+	{
+		close(fd);
+		return (1);
+	}
+	letters_printed = write(fd, text_content, text_size);
 
 	close(fd);
 
-	if (letters_printed <= 0)
+	if (letters_printed != text_size)
 		return (-1);
 
 	return (1);
