@@ -85,7 +85,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 
-	letters_printed = write(fd_to, buffer, 1024);
+	letters_printed = write(fd_to, buffer, letters_readed);
 	if (letters_printed != letters_readed)
 	{
 		close_fds(fd_from, fd_to);
@@ -93,5 +93,6 @@ int main(int ac, char **av)
 		exit(99);
 	}
 
+	close_fds(fd_from, fd_to);
 	return (0);
 }
