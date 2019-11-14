@@ -1,27 +1,28 @@
 #include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 
 int main(void)
 {
-        char *cmd = "start";
-        char *test[] = { "/bin/ls", NULL};
+        char *cmd = NULL;
+        char *test[] = { "", NULL};
         char *newenviron[] = { NULL };
+	int i = 0;
         size_t n;
         ssize_t read;
-        while (strcmp("exit", cmd) != 0)
+        while (1)
         {
                 printf("$ ");
                 read = getline(&cmd, &n, stdin);
+		while (cmd[i] != '\n')
+			i++;
+		cmd[i] = '\0';
+		fork();
                 execve(cmd, test, newenviron);
                 printf("%d\n", (int)read);
-        }
+		cmd = NULL;
+	}
         return (0);
 }
-
+/*
 int main2(int argc, char *argv[])
 {
 	char *newargv[] = { NULL, "hello", "world", NULL };
@@ -35,8 +36,9 @@ int main2(int argc, char *argv[])
                newargv[0] = argv[1];
 
                execve(argv[1], newargv, newenviron);
-               perror("execve");   /* execve() returns only on error */
+               perror("execve");   /* execve() returns only on error 
                exit(EXIT_FAILURE);
 }
 
-//ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+*/
