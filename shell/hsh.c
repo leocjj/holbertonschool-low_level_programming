@@ -2,7 +2,8 @@
 
 int main(void)
 {
-        char *comman_line = NULL;
+        char *command_line = NULL;
+        char *command_exit = "exit";
         char *args_for_execve[] = { "", NULL}, *new_env_vars[] = { NULL };
 	int i = 0, wait_status;
 	size_t len_of_command = 0;
@@ -12,20 +13,30 @@ int main(void)
         while (1)
         {
                 printf("$ ");
-                len_of_read = getline(&comman_line, &len_of_command, stdin);
-		while (comman_line[i] != '\n')
+                len_of_read = getline(&command_line, &len_of_command, stdin);
+		while (command_line[i] != '\n')
 			i++;
-		comman_line[i] = '\0';
-		child_pid = fork();
-		if (child_pid == -1)
-			return (1);
-		if (child_pid == 0)
+		command_line[i] = '\0';
+		if(strcmp(command_line, command_exit) == 0)
+			exit(EXIT_SUCCESS);
+		if(access(command_line, F_OK) >= 0 && access(command_line, X_OK))
 		{
-			execve(comman_line, args_for_execve, new_env_vars);
-			free(comman_line);
+			child_pid = fork();
+			if (child_pid == -1)
+				return (1);
+			if (child_pid == 0)
+			{
+				execve(command_line, args_for_execve, new_env_vars);
+				free(command_line);
+			}
+			else
+			{
+				wait(&wait_status);
+				free(command_line);
+			}
 		}
 		else
-			wait(&wait_status);
+			printf("./shell: No such file or directory");
 	}
         return (0);
 }
