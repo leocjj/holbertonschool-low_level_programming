@@ -3,7 +3,7 @@
 int main(void)
 {
         char *cmd = NULL;
-        char *test[] = { "", NULL};
+        char *args_for_execve[] = { "", NULL};
         char *newenviron[] = { NULL };
 	int i = 0;
         size_t n;
