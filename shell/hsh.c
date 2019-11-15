@@ -36,7 +36,7 @@ int main(void)
 			}
 		}
 		else
-			printf("./shell: No such file or directory");
+			printf("./shell: No such file or directory\n");
 	}
         return (0);
 }
