@@ -20,10 +20,12 @@ int main(void)
 		if (child_pid == -1)
 			return (1);
 		if (child_pid == 0)
-			execve(comman_line, args_for_execve, newenviron);
+		{
+			execve(comman_line, args_for_execve, new_env_vars);
+			free(comman_line);
+		}
 		else
-			wait(&status);
-		free(comman_line);
+			wait(&wait_status);
 	}
         return (0);
 }
