@@ -59,8 +59,6 @@ int main(int ac, char **av)
 
 	close(fd);
 	free(buffer);
-	if (letters_printed != letters_readed)
-		return (0);
 
 	return (letters_printed);
 }
