@@ -12,7 +12,7 @@ int main(void)
 
         while (1)
         {
-                printf("$ ");
+                printf("#MiniShell$ ");
                 len_of_read = getline(&command_line, &len_of_command, stdin);
 		for(i = 0; command_line[i] != '\n'; i++)
 			;
