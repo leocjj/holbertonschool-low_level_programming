@@ -40,10 +40,41 @@ int main(void)
         return (0);
 }
 
-/*
+/********************* 	PENDIENTES *********************************
+
+Task Simple shell 0.1 mandatory
+Write a UNIX command line interpreter.
+	*) Handle errors.
+	*) You have to handle the “end of file” condition (Ctrl+D)
+
+Task Simple shell 0.2 mandatory		Simple shell 0.1 +
+	*) Handle command lines with arguments (creo que es usando strtok y pasando los argumentos a execve)
+
+Task Simple shell 0.3 mandatory		Simple shell 0.2 +
+	*) Handle the PATH
+
+Task Simple shell 0.4 mandatory		Simple shell 0.3 +
+	*) Implement the exit built-in, that exits the shell
+	*) Usage: exit
+	*) You don’t have to handle any argument to the built-in exit
+
+Task Simple shell 1.0 mandatory		Simple shell 0.4 +
+	*) Implement the env built-in, that prints the current environment
+
+Task Betty would be proud mandatory
+	*) Write a beautiful code that passes the Betty checks
+
+Task README, man, AUTHORS mandatory
+	*) Write a README
+	*) Write a man for your shell.
+	*) You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, see Docker
+
+
+Información importante de los comandos resumida en este archivo:
+https://github.com/leocjj/0123/blob/master/0123C_files.txt
+
+
                perror("execve");   /* execve() returns only on error
                exit(EXIT_FAILURE);
-}
 
-ssize_t getline(char **line_readed, size_t *number_of_bytes, FILE *file_descriptor); //returns -1 on error
 */
