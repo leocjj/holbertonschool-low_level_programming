@@ -81,14 +81,14 @@ int main(int ac, char **av)
 		letters_printed = write(fd_to, buffer, letters_readed);
 		if (letters_printed != letters_readed)
 		{
-			dprintf(STDERR_FILENO, "Can't write to %s\n", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 		letters_readed = read(fd_from, buffer, 1024);
 	}
 	if (letters_readed < 0)
 	{
-		dprintf(STDERR_FILENO, "Can't read from file %s\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
