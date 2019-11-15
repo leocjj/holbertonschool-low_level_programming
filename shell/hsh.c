@@ -1,44 +1,37 @@
-#include <stdio.h>
+#include "shs.h"
 
 int main(void)
 {
-        char *cmd = NULL;
-        char *args_for_execve[] = { "", NULL};
-        char *newenviron[] = { NULL };
-	int i = 0;
-        size_t n;
-        ssize_t read;
+        char *comman_line = NULL;
+        char *args_for_execve[] = { "", NULL}, *new_env_vars[] = { NULL };
+	int i = 0, wait_status;
+	size_t len_of_command = 0;
+        ssize_t len_of_read;
+        pid_t child_pid;
+
         while (1)
         {
                 printf("$ ");
-                read = getline(&cmd, &n, stdin);
-		while (cmd[i] != '\n')
+                len_of_read = getline(&comman_line, &len_of_command, stdin);
+		while (comman_line[i] != '\n')
 			i++;
-		cmd[i] = '\0';
-		fork();
-                execve(cmd, test, newenviron);
-                printf("%d\n", (int)read);
-		cmd = NULL;
+		comman_line[i] = '\0';
+		child_pid = fork();
+		if (child_pid == -1)
+			return (1);
+		if (child_pid == 0)
+			execve(comman_line, args_for_execve, newenviron);
+		else
+			wait(&status);
+		free(comman_line);
 	}
         return (0);
 }
+
 /*
-int main2(int argc, char *argv[])
-{
-	char *newargv[] = { NULL, "hello", "world", NULL };
-        const char *newenviron[] = { NULL };
-
-               if (argc != 2) {
-                   fprintf(stderr, "Usage: %s <file-to-exec>\n", argv[0]);
-                   exit(EXIT_FAILURE);
-               }
-
-               newargv[0] = argv[1];
-
-               execve(argv[1], newargv, newenviron);
-               perror("execve");   /* execve() returns only on error 
+               perror("execve");   /* execve() returns only on error
                exit(EXIT_FAILURE);
 }
 
-ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+ssize_t getline(char **line_readed, size_t *number_of_bytes, FILE *file_descriptor); //returns -1 on error
 */
