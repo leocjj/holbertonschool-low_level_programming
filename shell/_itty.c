@@ -1,15 +1,18 @@
 #include "shs.h"
 
 /**
- * _itty - Interactive mode of program, waits for input then calls program
- * if it is found.
+ * _itty - Interactive, waits for input then calls program if it is found.
+ * @argv: parameters received from main(), name of the application.
+ *
+ * Return: void.
  */
 void _itty(char *argv)
 {
 	char *command_line = NULL;
 	char *command_exit = "exit";
 	char *args_for_execve[] = { "", NULL}, *new_env_vars[] = { NULL };
-	int i = 0, file_ok, wait_status;
+	int i = 0, file_found = -1, file_access = -1, wait_status;
+	struct stat st;
 	pid_t child_pid;
 
 	while (1)
@@ -21,20 +24,29 @@ void _itty(char *argv)
 		command_line[i] = '\0';
 		if (strcmp(command_line, command_exit) == 0)
 			exit(EXIT_SUCCESS);
-		file_ok = access(command_line, F_OK | X_OK);
-		if (file_ok >= 0)
+
+		file_found = stat(command_line, &st);
+		file_access = access(command_line, F_OK | X_OK);
+
+		if (file_found >= 0)
 		{
-			child_pid = fork();
-			if (child_pid == -1)
-				exit(1);
-			if (child_pid == 0)
+			if (file_access >= 0)
 			{
-				execve(command_line, args_for_execve,
-				       new_env_vars);
-				free(command_line);
+				child_pid = fork();
+				if (child_pid == -1)
+					exit(1);
+				if (child_pid == 0)
+				{
+					execve(command_line, args_for_execve,
+					       new_env_vars);
+					free(command_line);
+				} else
+					wait(&wait_status);
 			} else
-				wait(&wait_status);
-		} else
-			printf("%s: No such file or directory\n", argv);
+				printf("-%s: %s: Permission denied\n", argv, command_line);
+		}
+		else
+			printf("-%s: %s: No such file or directory\n", argv, command_line);
+
 	}
 }
