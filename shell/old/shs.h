@@ -7,8 +7,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
-void _ntty(char *);
-void _itty(char *);
-void _read(char **);
+
+
 
 #endif
