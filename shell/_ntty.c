@@ -10,7 +10,7 @@ void _ntty(char *argv)
 {
 	char *command_line = NULL;
 	char *args_for_execve[] = { "", NULL}, *new_env_vars[] = { NULL };
-	int i = 0, file_found = -1, file_access = -1;
+	int file_found = -1, file_access = -1;
 	struct stat st;
 
 	_read(&command_line);

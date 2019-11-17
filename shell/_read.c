@@ -8,6 +8,7 @@
  */
 void _read(char **command_line)
 {
+	int i = 0;
 	char *command_exit = "exit";
 	size_t len_of_command = 0;
 	ssize_t len_of_read;
@@ -32,6 +33,6 @@ void _read(char **command_line)
 	/**
      * To exit in case exit command is typed.
      */
-	if (strcmp(command_line, command_exit) == 0)
+	if (strcmp(&(*command_line), command_exit) == 0)
 		exit(EXIT_SUCCESS);
 }
