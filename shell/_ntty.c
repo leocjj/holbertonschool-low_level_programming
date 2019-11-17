@@ -2,7 +2,9 @@
 
 /**
  * _ntty - non-interactive. Receives input, calls the program then exits
+ * @argv: arguments passed, name of executable file.
  *
+ * Return: void
  */
 void _ntty(char *argv)
 {
@@ -12,13 +14,12 @@ void _ntty(char *argv)
 	struct stat st;
 
 	_read(&command_line);
-	for (i = 0; command_line[i] != '\n'; i++)
-		;
-	command_line[i] = '\0';
 
+    /**
+     * Conditions to evaluate: command is found, command is executable by user.
+     */
 	file_found = stat(command_line, &st);
 	file_access = access(command_line, F_OK | X_OK);
-
 	if (file_found >= 0)
 	{
 		if (file_access >= 0)

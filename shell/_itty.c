@@ -9,7 +9,6 @@
 void _itty(char *argv)
 {
 	char *command_line = NULL;
-	char *command_exit = "exit";
 	char *args_for_execve[] = { "", NULL}, *new_env_vars[] = { NULL };
 	int i = 0, file_found = -1, file_access = -1, wait_status;
 	struct stat st;
@@ -19,15 +18,12 @@ void _itty(char *argv)
 	{
 		printf("#MiniShell$ ");
 		_read(&command_line);
-		for (i = 0; command_line[i] != '\n'; i++)
-			;
-		command_line[i] = '\0';
-		if (strcmp(command_line, command_exit) == 0)
-			exit(EXIT_SUCCESS);
 
+		/**
+		 * Conditions to evaluate: command is found, command is executable by user.
+		 */
 		file_found = stat(command_line, &st);
 		file_access = access(command_line, F_OK | X_OK);
-
 		if (file_found >= 0)
 		{
 			if (file_access >= 0)
@@ -47,6 +43,5 @@ void _itty(char *argv)
 		}
 		else
 			printf("-%s: %s: No such file or directory\n", argv, command_line);
-
 	}
 }
