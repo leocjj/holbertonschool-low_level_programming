@@ -59,7 +59,7 @@ Información importante de los comandos resumida en este archivo:
 https://github.com/leocjj/0123/blob/master/0123C_files.txt
 
 
-               perror("execve");   /* execve() returns only on error
+               perror("execve");   //execve() returns only on error
                exit(EXIT_FAILURE);
 
 */
