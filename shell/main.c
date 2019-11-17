@@ -24,20 +24,23 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-
 /**
- * ******************* 	PENDINGS *********************************
- *
- *    COMENATARIOS CORREGIDOS
+ * ACTIVIDADES HECHAR
+ * COMENATARIOS CORREGIDOS
  * TABULACION CAMBIADA A 4 ESPACIOS PARA NO SUPERAR LOS 80 CARACTERES POR LINEA
- * DEBERÍAMOS COLOCAR char *command_exit = "exit"; QUE ESTÁ EN _READ.C, EN HEADER shs.h
  *
  * CONDICIONES DE ARCHIVO ACTUALIZADAS: SI EXISTE EL ARCHIVO Y SI SE PUEDE EJECUTAR.
  * file_found = stat(command_line, &st);
  * file_access = access(command_line, F_OK | X_OK);
  *
- * EN ARCHIVO _read.c, por que aparece EXIT SUCCESS en la siguiente instrucción??
+ * EN ARCHIVO _read.c, por qué aparece EXIT SUCCESS en la siguiente instrucción??
  * if (len_of_read == -1)
+ *
+ *
+ *
+ * PENDINGS
+ *
+ * DEBERÍAMOS COLOCAR char *command_exit = "exit"; QUE ESTÁ EN _READ.C, EN HEADER shs.h
  *
  * Task Simple shell 0.1 mandatory
  * Write a UNIX command line interpreter.
