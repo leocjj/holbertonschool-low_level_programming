@@ -10,7 +10,7 @@
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	long unsigned int n = 0;
+	unsigned long int n = 0;
 
 	if (h == NULL)
 		return (0);
