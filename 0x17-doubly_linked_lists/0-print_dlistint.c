@@ -2,25 +2,22 @@
 #include "lists.h"
 
 /**
- * print_list - function that prints all the elements of a list_t list.
- * @h: structure of type list_t
+ * print_dlistint - function that prints all the elements of a dlistint_t
+ * @h: structure of type dlistint_t
  *
  * Return: the number of nodes printed.
  */
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	int n = 0;
+	long unsigned int n = 0;
 
 	if (h == NULL)
 		return (0);
 
 	while (h != NULL)
 	{
-		if (h->str == NULL)
-			printf("[0] (nil)\n");
-		else
-			printf("[%u] %s\n", h->len, h->str);
+		printf("%d\n", h->n);
 		h = h->next;
 		n++;
 	}
