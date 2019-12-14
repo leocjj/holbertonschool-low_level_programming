@@ -2,22 +2,17 @@
 #include "lists.h"
 
 /**
- * list_len - function returns the number of elements in a linked list_t list.
- * @h: structure of type list_t
+ * dlistint_len - function returns the number of elements in linked dlistint_t
+ * @h: structure of type dlistint_t
  *
  * Return: the number of elements.
  */
-size_t list_len(const list_t *h)
+size_t dlistint_len(const dlistint_t *h)
 {
-	int n = 0;
+	size_t n;
 
-	if (h == NULL)
-		return (0);
-
-	while (h != NULL)
-	{
-		n++;
+	for(n = 0; h != NULL; n++)
 		h = h->next;
-	}
+
 	return (n);
 }
