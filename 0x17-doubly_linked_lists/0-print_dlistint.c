@@ -10,16 +10,12 @@
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	unsigned long int n = 0;
+	size_t n;
 
-	if (h == NULL)
-		return (0);
-
-	while (h != NULL)
+	for (n = 0; h != NULL; n++)
 	{
 		printf("%d\n", h->n);
 		h = h->next;
-		n++;
 	}
 	return (n);
 }
