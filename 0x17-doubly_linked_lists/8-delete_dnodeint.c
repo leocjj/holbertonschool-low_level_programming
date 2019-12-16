@@ -9,10 +9,10 @@
  *
  * Return: 1 if it succeeded, -1 if it failed
  */
-int delete_dnodeint_at_the_end(dlistint_t **node)
+int delete_dnodeint_at_the_end(dlistint_t *node)
 {
 	node->prev->next = NULL;
-	free(*node);
+	free(node);
 	node = NULL;
 	return (1);
 }
@@ -27,7 +27,7 @@ int delete_dnodeint_at_beginning(dlistint_t **head)
 {
 	dlistint_t *temp = NULL;
 
-	if (*head->next == NULL)
+	if ((*head)->next == NULL)
 	{
 		free(*head);
 		*head = NULL;
@@ -35,10 +35,10 @@ int delete_dnodeint_at_beginning(dlistint_t **head)
 	}
 	else
 	{
-		temp = *head->next;
+		temp = (*head)->next;
 		free(*head);
 		*head = temp;
-		*head->prev = NULL;
+		(*head)->prev = NULL;
 		return (1);
 	}
 	return (-1);
@@ -50,7 +50,7 @@ int delete_dnodeint_at_beginning(dlistint_t **head)
  *
  * Return: the number of elements.
  */
-unsigned int dlist_len(const dlistint_t *h)
+unsigned int list_len(const dlistint_t *h)
 {
 	unsigned int n;
 
@@ -66,7 +66,7 @@ unsigned int dlist_len(const dlistint_t *h)
  *
  * Return: the nth node of a dlistint_t linked list.
  */
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
+dlistint_t *get_nodeint_at_index(dlistint_t *head, unsigned int index)
 {
 	unsigned int counter = 0;
 	dlistint_t *head_copy = head;
@@ -90,27 +90,27 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *temp = NULL;
-	unsigned int list_len = dlist_len(*head);
+	dlistint_t *node_index = NULL;
+	unsigned int len = list_len(*head);
 
-	if ((head == NULL) || (*head == NULL)
+	if ((head == NULL) || (*head == NULL))
 		return (-1);
 
-	if (index >= list_len)
+	if (index >= len)
 		return (-1);
 
 	if (index == 0)
-		return (delete_dnodeint_at_beginning(*head));
+		return (delete_dnodeint_at_beginning(head));
 
-	node_index = get_dnodeint_at_index(*head, index);
+	node_index = get_nodeint_at_index(*head, index);
 
-	if (index == list_len - 1)
+	if (index == len - 1)
 		return (delete_dnodeint_at_the_end(node_index));
 
 	node_index->next->prev = node_index->prev;
 	node_index->prev->next = node_index->next;
 
-	free(node_index)
+	free(node_index);
 	node_index = NULL;
 
 	return (1);
