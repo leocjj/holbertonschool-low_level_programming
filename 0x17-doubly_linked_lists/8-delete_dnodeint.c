@@ -91,18 +91,18 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *temp = NULL;
-	unsigned int list_len = dlist_len(*h);
+	unsigned int list_len = dlist_len(*head);
 
-	if ((h == NULL) || (*h == NULL)
+	if ((head == NULL) || (*head == NULL)
 		return (-1);
 
 	if (index >= list_len)
 		return (-1);
 
 	if (index == 0)
-		return (delete_dnodeint_at_beginning(head));
+		return (delete_dnodeint_at_beginning(*head));
 
-	node_index = get_dnodeint_at_index(*h, index);
+	node_index = get_dnodeint_at_index(*head, index);
 
 	if (index == list_len - 1)
 		return (delete_dnodeint_at_the_end(node_index));
