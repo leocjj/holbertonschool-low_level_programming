@@ -41,7 +41,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 }
 
 /**
- * insert_dnodeint_at_index - function that adds a new node at the end of a dlistint_t
+ * insert_dnodeint_at_index - adds a new node at the end of a dlistint_t
  * @h: address of a pointer to a structure of type dlistint_t
  * @idx: index to add the node.
  * @n: data value for the node.
