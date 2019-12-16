@@ -4,12 +4,12 @@
 #include "lists.h"
 
 /**
- * dlistint_len - function returns the number of elements in linked dlistint_t
+ * dlist_len - function returns the number of elements in linked dlistint_t
  * @h: structure of type dlistint_t
  *
  * Return: the number of elements.
  */
-unsigned int dlistint_len(const dlistint_t *h)
+unsigned int dlist_len(const dlistint_t *h)
 {
 	unsigned int n;
 
@@ -51,7 +51,7 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *node_new = NULL, *node_idx = NULL;
-	unsigned int list_len = dlistint_len(*h);
+	unsigned int list_len = dlist_len(*h);
 
 	if ((h == NULL) || (*h == NULL && idx > 0))
 		return (NULL);
