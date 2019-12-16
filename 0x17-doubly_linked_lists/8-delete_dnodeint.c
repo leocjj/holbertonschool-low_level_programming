@@ -45,7 +45,7 @@ int delete_dnodeint_at_beginning(dlistint_t **head)
 }
 
 /**
- * dlist_len - function returns the number of elements in linked dlistint_t
+ * list_len - function returns the number of elements in linked dlistint_t
  * @h: structure of type dlistint_t
  *
  * Return: the number of elements.
@@ -60,7 +60,7 @@ unsigned int list_len(const dlistint_t *h)
 }
 
 /**
- * get_dnodeint_at_index - returns the nth node of a dlistint_t list.
+ * get_nodeint_at_index - returns the nth node of a dlistint_t list.
  * @head: pointer to a structure of type dlistint_t
  * @index: index of the node, starting at 0
  *
