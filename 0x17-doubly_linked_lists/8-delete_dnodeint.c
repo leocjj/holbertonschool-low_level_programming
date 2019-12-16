@@ -5,7 +5,7 @@
 
 /**
  * delete_dnodeint_at_the_end - delete the last element in dlistint_t
- * @head: structure of type dlistint_t
+ * @node: structure of type dlistint_t
  *
  * Return: 1 if it succeeded, -1 if it failed
  */
