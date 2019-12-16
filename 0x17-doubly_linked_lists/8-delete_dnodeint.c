@@ -27,12 +27,14 @@ int delete_dnodeint_at_beginning(dlistint_t **head)
 {
 	dlistint_t *temp = NULL;
 
-	if (*head->next == NULL){
+	if (*head->next == NULL)
+	{
 		free(*head);
 		*head = NULL;
 		return (1);
 	}
-	else{
+	else
+	{
 		temp = *head->next;
 		free(*head);
 		*head = temp;
