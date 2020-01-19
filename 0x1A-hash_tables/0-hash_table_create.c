@@ -12,20 +12,24 @@
 hash_table_t *hash_table_create(unsigned long int size)
 {
 	hash_table_t *ht = NULL;
+	hash_node_t **array = NULL;
+	unsigned int i = 0;
 
+	(void) i;
 	ht = malloc(sizeof(hash_table_t));
 	if (ht == NULL)
 		return (NULL);
 
-	ht->size = size;
-
-	ht->array = calloc(size, sizeof(hash_node_t *));
-
+	array = calloc(size, sizeof(hash_node_t *));
 	if (array == NULL)
 	{
 		free(array);
+		free(ht);
 		return (NULL);
 	}
+
+	ht->size = size;
+	ht->array = array;
 
 	return (ht);
 }
