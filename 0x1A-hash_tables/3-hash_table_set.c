@@ -15,7 +15,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node = NULL, *temp = NULL;
 
 	/*Check conditions*/
-	if (ht == NULL || key == NULL || strcmp(key, "") == 0 || value == NULL )
+	if (ht == NULL || key == NULL || strcmp(key, "") == 0 || value == NULL)
 		return (0);
 
 	/*calculate index for the key with the size from hash table*/
