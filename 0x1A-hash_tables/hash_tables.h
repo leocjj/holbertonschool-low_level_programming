@@ -1,11 +1,16 @@
 #ifndef HASH_TABLES_H_
 #define HASH_TABLES_H_
 
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
 /*
  * Structs, enums and unions definitions
  * Typedefs
  * Function prototypes
  */
+
 /**
  * struct hash_node_s - Node of a hash table
  *
@@ -37,5 +42,6 @@ typedef struct hash_table_s
 
 
 hash_table_t *hash_table_create(unsigned long int size);
+unsigned long int hash_djb2(const unsigned char *str);
 
 #endif /*HASH_TABLES_H_ */
