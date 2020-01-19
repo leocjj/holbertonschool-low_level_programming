@@ -15,14 +15,14 @@ void hash_table_print(const hash_table_t *ht)
 
 	/*Check conditions*/
 	if (ht == NULL)
-		printf("{}");
+		return;
 
 	ht_size = ht->size;
 /*{'Betty': 'Holberton', 'python': 'awesome'}*/
 
 	/*calculate index for the key with the size from hash table*/
 	printf("{");
-	for(ht_key = 0; ht_key < ht_size; ht_key++)
+	for (ht_key = 0; ht_key < ht_size; ht_key++)
 	{
 		/*head of single linked list in position ht_key in the hash table*/
 		temp = ht->array[ht_key];
