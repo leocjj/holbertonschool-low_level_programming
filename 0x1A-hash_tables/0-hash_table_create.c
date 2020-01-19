@@ -17,21 +17,18 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	(void) i;
 	ht = malloc(sizeof(hash_table_t));
-	if(ht == NULL)
+	if (ht == NULL)
 		return (NULL);
 
 	ht->size = size;
 
 	ht->array = calloc(size, sizeof(hash_node_t *));
 
-	if(array == NULL)
+	if (array == NULL)
 	{
 		free(array);
 		return (NULL);
 	}
 
-/*	for(i = 0; i < size; i++)
-		(*array + i) = NULL;
-*/
 	return (ht);
 }
