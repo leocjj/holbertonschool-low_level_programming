@@ -12,10 +12,9 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int ht_key = 0;
-	hash_node_t *new_node;
+	hash_node_t *new_node = NULL;
 
-	(void) value;
-	if (ht == NULL || key == NULL || *key == '\0')
+	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
 
 	ht_key = key_index((unsigned char *)key, ht->size);
@@ -46,8 +45,8 @@ hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
 	if (p == NULL)
 		return (NULL);
 
-	(*p).key = strdup(key);
-	if ((*p).key == NULL)
+	p->key = strdup(key);
+	if (p->key == NULL)
 	{
 		free(p);
 		return (NULL);
