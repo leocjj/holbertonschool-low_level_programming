@@ -49,11 +49,15 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 
 ### Tasks
 
- 0. A library is not a luxury but one of the necessities of life
- 1. Without libraries what have we? We have no past and no future mandatory
- 2. Either write something worth reading or do something worth writing mandatory
- 3. Let's call C functions from Python #advanced
- 4. Code injection: Win the Giga Millions! #advanced
+ 0. >>> ht = {} mandatory
+ 1. djb2 mandatory
+ 2. key -> index mandatory
+ 3. >>> ht['betty'] = 'holberton' mandatory
+ 4. >>> ht['betty'] mandatory
+ 5. >>> print(ht) mandatory
+ 6. >>> del ht mandatory
+ 7. $ht['Betty'] = 'Holberton' #advanced
+
 
 
 ## More Info
