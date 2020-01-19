@@ -15,13 +15,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node;
 
 	(void) value;
-	if(ht == NULL || key == NULL || *key == '\0')
+	if (ht == NULL || key == NULL || *key == '\0')
 		return (0);
 
 	ht_key = key_index((unsigned char *)key, ht->size);
 
 	new_node = add_node(&(ht->array[ht_key]), key, value);
-	if(new_node == NULL)
+	if (new_node == NULL)
 		return (0);
 
 	return (1);
@@ -29,8 +29,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 /**
  * add_node - adds a new node at the beginning of a hash_node_t list.
- * @head: address of a pointer to a structure of type list_t
- * @str: string to add to node.
+ * @head: address of a pointer to a structure of type hash_node_t
+ * @key: key to add to the node.
+ * @value: string to add to the node.
  *
  * Return: pointer to structure of type hash_node_t.
  */
