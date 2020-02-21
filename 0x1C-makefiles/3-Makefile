@@ -3,10 +3,7 @@ SRC = main.c holberton.c
 OBJ = $(SRC:%.c=%.o)
 NAME = holberton
 RM = rm
-.PHONY: clean
-.PHONY: oclean
-.PHONY: fclean
-.PHONY: re
+.PHONY = clean oclean fclean re
 
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
