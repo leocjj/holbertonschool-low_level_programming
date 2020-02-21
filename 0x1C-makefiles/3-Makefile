@@ -1,6 +1,5 @@
 CC = gcc
 SRC = main.c holberton.c
-$(wildcard *.c)
 OBJ = $(SRC:%.c=%.o)
 NAME = holberton
 RM = rm
