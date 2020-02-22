@@ -20,6 +20,7 @@ def contiguous(grid, i, j):
             counter += 1
     return counter
 
+
 def island_perimeter(grid):
     """"Function to calculate perimeter of an island"""
 
