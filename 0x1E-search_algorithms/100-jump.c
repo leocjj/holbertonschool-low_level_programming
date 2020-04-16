@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
@@ -15,13 +14,13 @@
  */
 int jump_search(int *array, size_t size, int value)
 {
-	int i = 0, prev = 0, step = 1, sqrt_size = 1;
+	int prev = 0, step = 1;
 
 	if (array == NULL)
 		return (-1);
 
 	/* Block size to be jumped */
-	step = sqrt_size = (int)sqrt(size);
+	step = (int)sqrt(size);
 
 	/* Finding the block where element is present (if it is present) */
 	while (array[prev] < value)
@@ -45,7 +44,7 @@ int jump_search(int *array, size_t size, int value)
 	if (array[prev] == value)
 	{
 		printf("Value checked array[%d] = [%d]\n", prev, array[prev]);
-		return (i);
+		return (prev);
 	}
 	return (-1);
 }
