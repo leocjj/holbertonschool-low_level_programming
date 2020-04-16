@@ -24,7 +24,7 @@ int jump_search(int *array, size_t size, int value)
 	step = sqrt_size = (int)sqrt(size);
 
 	/* Finding the block where element is present (if it is present) */
-	while (array[step] <= value && step < size)
+	while (array[step] < value && step < size)
 	{
 		printf("Value checked array[%d] = [%d]\n", (int)prev, array[prev]);
 		prev = step;
@@ -36,9 +36,9 @@ int jump_search(int *array, size_t size, int value)
 	printf("Value found between indexes [%d] and [%d]\n", (int)prev, (int)step);
 
 	/* Doing a linear search for x in block beginning with prev. */
-	for (i = prev; i < step; i++)
+	for (i = prev; i <= step && i < size; i++)
 	{
-		printf("Value checked array[%d] = [%d]\n", (int)prev, array[prev]);
+		printf("Value checked array[%d] = [%d]\n", (int)i, array[i]);
 		if (array[i] == value)
 			return (i);
 	}
