@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /**
- * advanced_binary - searches for a value in a sorted array of integers using the
- * advanced binary search algorithm
+ * advanced_binary - searches for a value in a sorted array of integers using
+ * the advanced binary search algorithm
  * Print the array being searched every time it changes. (e.g. at the beginning
  * and when you search a subarray): Searching in array: 0, 1, 2, 3, 4
  *
