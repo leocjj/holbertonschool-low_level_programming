@@ -15,7 +15,7 @@
  */
 int binary_search_exponencial(int *array, int value, int low, int size)
 {
-	size_t i = 0, L = low, m = 0, R = size - 1;
+	size_t i = 0, L = low, m = 0, R = size;
 
 	if (array == NULL)
 		return (-1);
